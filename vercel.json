@@ -1,17 +1,15 @@
 {
   "version": 2,
+  "buildCommand": null,
+  "outputDirectory": "drebank",
   "rewrites": [
     {
       "source": "/",
-      "destination": "/www.alexaglobalfinance.com/index.html"
-    },
-    {
-      "source": "/(.*\\.(html|css|js|png|jpg|jpeg|gif|svg|webp|ico|woff|woff2|ttf|eot))",
-      "destination": "/www.alexaglobalfinance.com/$1"
+      "destination": "/index.html"
     },
     {
       "source": "/(.*)",
-      "destination": "/www.alexaglobalfinance.com/$1"
+      "destination": "/$1"
     }
   ]
 }
