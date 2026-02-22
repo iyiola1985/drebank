@@ -271,23 +271,216 @@ body {
         padding: 10px 12px !important;
     }
     
-    .business-title-middle h2 {
-        font-size: 24px !important;
-    }
-    
-    .single-colorful-feature {
-        padding: 20px !important;
-        margin-bottom: 15px !important;
-    }
-    
-    .single-colorful-feature h2 {
-        font-size: 18px !important;
-    }
-    
-    .single-colorful-feature p {
-        font-size: 13px !important;
-    }
-}
+          .business-title-middle h2 {
+              font-size: 24px !important;
+          }
+          
+          .single-colorful-feature {
+              padding: 20px !important;
+              margin-bottom: 15px !important;
+          }
+          
+          .single-colorful-feature h2 {
+              font-size: 18px !important;
+          }
+          
+          .single-colorful-feature p {
+              font-size: 13px !important;
+          }
+      }
+      
+      /* Enhanced Mobile Responsiveness - Prevent Overlap */
+      @media (max-width: 768px) {
+          /* Carousel/Banner Content - Prevent Text/Button Overlap */
+          .innerBannerContent {
+              flex-direction: column !important;
+              padding: 20px 15px !important;
+              margin: 0 !important;
+          }
+          
+          .innerBannerContent .col-sm-7,
+          .innerBannerContent .col-sm-5 {
+              width: 100% !important;
+              max-width: 100% !important;
+              padding: 10px 15px !important;
+              margin-bottom: 20px !important;
+              flex: 0 0 100% !important;
+          }
+          
+          .innerBannerContent h2 {
+              font-size: 1.8em !important;
+              margin-bottom: 15px !important;
+              line-height: 1.3 !important;
+              word-wrap: break-word !important;
+          }
+          
+          .innerBannerContent p {
+              font-size: 0.95em !important;
+              margin-bottom: 15px !important;
+              line-height: 1.5 !important;
+              word-wrap: break-word !important;
+          }
+          
+          .innerBannerContent img {
+              max-width: 100% !important;
+              height: auto !important;
+              margin: 15px 0 !important;
+              display: block !important;
+          }
+          
+          .innerBannerContent a {
+              display: inline-block !important;
+              padding: 10px 20px !important;
+              margin-top: 10px !important;
+              margin-bottom: 10px !important;
+          }
+          
+          /* Welcome text spacing - prevent overlap with login */
+          .welcome-text-overlay {
+              position: relative !important;
+              left: auto !important;
+              top: auto !important;
+              transform: none !important;
+              text-align: center !important;
+              margin: 30px auto 20px !important;
+              max-width: 90% !important;
+              padding: 0 20px !important;
+          }
+          
+          .welcome-text-overlay h1 {
+              font-size: 2em !important;
+              margin-bottom: 20px !important;
+              line-height: 1.2 !important;
+          }
+          
+          /* Login box spacing */
+          .loginbox {
+              position: relative !important;
+              right: auto !important;
+              top: auto !important;
+              transform: none !important;
+              margin: 20px auto !important;
+              max-width: calc(100% - 40px) !important;
+              width: auto !important;
+          }
+          
+          /* Navbar spacing */
+          .navbar-nav {
+              margin-top: 15px !important;
+          }
+          
+          .dropdown-menu {
+              position: static !important;
+              float: none !important;
+              width: 100% !important;
+              margin-top: 10px !important;
+              margin-bottom: 10px !important;
+          }
+          
+          /* Feature cards spacing */
+          .single-colorful-feature {
+              margin-bottom: 20px !important;
+              padding: 20px 15px !important;
+          }
+          
+          .single-colorful-feature h2 {
+              font-size: 1.3em !important;
+              margin-bottom: 10px !important;
+              line-height: 1.3 !important;
+          }
+          
+          .single-colorful-feature p {
+              margin-bottom: 10px !important;
+              line-height: 1.5 !important;
+          }
+          
+          /* Blog cards spacing */
+          .single-bolg {
+              margin-bottom: 30px !important;
+          }
+          
+          .blog-content {
+              padding: 15px !important;
+          }
+          
+          .blog-content a {
+              margin-bottom: 10px !important;
+              display: block !important;
+          }
+          
+          /* Footer spacing */
+          .bussiness-footer-1x .col-md-3 {
+              margin-bottom: 30px !important;
+              padding: 0 15px !important;
+          }
+          
+          /* Form elements spacing */
+          .form-group {
+              margin-bottom: 15px !important;
+          }
+          
+          .form-control {
+              margin-bottom: 10px !important;
+              width: 100% !important;
+          }
+          
+          /* Button spacing */
+          .btn, .bussiness-btn-larg, .loginbtn {
+              margin: 10px 5px !important;
+              padding: 12px 24px !important;
+              width: auto !important;
+              display: inline-block !important;
+          }
+          
+          /* Business features spacing */
+          .business-features-3x {
+              padding: 20px 0 !important;
+          }
+          
+          .business-title-middle {
+              margin-bottom: 20px !important;
+              padding: 0 15px !important;
+          }
+          
+          /* App present section */
+          .app-present-left-2,
+          .app-present-right-2 {
+              margin-bottom: 20px !important;
+              padding: 0 15px !important;
+          }
+          
+          .app-present-left-2 img {
+              max-width: 100% !important;
+              height: auto !important;
+          }
+      }
+      
+      @media (max-width: 480px) {
+          .innerBannerContent h2 {
+              font-size: 1.5em !important;
+          }
+          
+          .welcome-text-overlay h1 {
+              font-size: 1.6em !important;
+          }
+          
+          .loginbox {
+              padding: 20px 15px !important;
+          }
+          
+          .single-colorful-feature {
+              padding: 15px 10px !important;
+          }
+          
+          .innerBannerContent {
+              padding: 15px 10px !important;
+          }
+          
+          .innerBannerContent .col-sm-7,
+          .innerBannerContent .col-sm-5 {
+              padding: 10px !important;
+          }
+      }
 
 @media screen and (max-width: 320px) {
     .sign-in-btn {
