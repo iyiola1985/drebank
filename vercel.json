@@ -1,15 +1,5 @@
 {
   "version": 2,
   "buildCommand": null,
-  "outputDirectory": "drebank",
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/$1"
-    }
-  ]
+  "outputDirectory": "drebank"
 }
