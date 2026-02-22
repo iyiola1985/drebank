@@ -1,25 +1,13 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "www.alexaglobalfinance.com/**",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/",
-      "dest": "/www.alexaglobalfinance.com/index.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/www.alexaglobalfinance.com/$1"
-    }
-  ],
   "rewrites": [
     {
       "source": "/",
       "destination": "/www.alexaglobalfinance.com/index.html"
+    },
+    {
+      "source": "/(.*\\.(html|css|js|png|jpg|jpeg|gif|svg|webp|ico|woff|woff2|ttf|eot))",
+      "destination": "/www.alexaglobalfinance.com/$1"
     },
     {
       "source": "/(.*)",
