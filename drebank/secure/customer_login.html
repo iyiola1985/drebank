@@ -164,6 +164,375 @@
         padding: 15px !important;
     }
 }
+
+/* Premium Sign In Button Design */
+.sign-in-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+    color: #ffffff !important;
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    border: none;
+}
+
+.sign-in-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.sign-in-btn:hover::before {
+    left: 100%;
+}
+
+.sign-in-btn .lock-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    padding: 4px;
+    transition: all 0.3s ease;
+}
+
+.sign-in-btn .lock-icon i {
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.sign-in-btn .sign-in-text {
+    position: relative;
+    z-index: 1;
+}
+
+.sign-in-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+    background: linear-gradient(135deg, #5aa0f2 0%, #4680cd 100%);
+}
+
+.sign-in-btn:hover .lock-icon {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(5deg);
+}
+
+.sign-in-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(74, 144, 226, 0.3);
+}
+
+/* Professional Header & Navbar Styling */
+.navbar-brand h2{
+    font-size:35px;
+    margin-top:2px;
+}
+
+body {
+    font-family: 'Roboto', 'Montserrat', Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.top-menu-1x {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 12px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.top-menu-left p {
+    margin: 0;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.top-menu-left a {
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.top-menu-left a:hover {
+    color: #4a90e2 !important;
+}
+
+.bussiness-main-menu-1x {
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(74, 144, 226, 0.1);
+}
+
+.navbar {
+    padding: 0;
+}
+
+.navbar-brand {
+    padding: 0;
+    margin-right: 30px;
+}
+
+.navbar-brand img {
+    max-width: 220px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover img {
+    transform: scale(1.05);
+}
+
+.navbar-brand:hover {
+    text-decoration: none;
+}
+
+.business-nav .nav-link {
+    font-weight: 600;
+    color: #1a1a2e !important;
+    padding: 12px 20px !important;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+.business-nav .nav-link:hover {
+    color: #4a90e2 !important;
+    background-color: rgba(74, 144, 226, 0.05);
+    border-radius: 4px;
+}
+
+.navbar-light .navbar-toggler {
+    border-color: #4a90e2;
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath stroke='%234a90e2' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 4px;
+    padding: 20px;
+}
+
+/* Internet Banking Section with Welcome Text */
+.business-main-slider1 {
+    position: relative;
+    overflow: hidden;
+    min-height: 600px;
+    background-image: url("../images/b1.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.welcome-text-overlay {
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    max-width: 500px;
+}
+
+.welcome-text-overlay h1 {
+    font-family: 'Poppins', 'Playfair Display', serif;
+    font-size: 3.5em;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(26, 26, 46, 0.7);
+    line-height: 1.2;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+@media (max-width: 1200px) {
+    .welcome-text-overlay h1 {
+        font-size: 2.8em;
+    }
+}
+
+@media (max-width: 992px) {
+    .welcome-text-overlay {
+        left: 30px;
+        max-width: 400px;
+    }
+    
+    .welcome-text-overlay h1 {
+        font-size: 2.4em;
+    }
+}
+
+.loginbox {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: url("../images/b1.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    max-width: 380px;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.loginbox::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(26, 26, 46, 0.85);
+    z-index: 1;
+}
+
+.loginbox > * {
+    position: relative;
+    z-index: 2;
+}
+
+.loginbox h3,
+.loginbox .form-group,
+.loginbox .form-control,
+.loginbox .checkbox,
+.loginbox label,
+.loginbox input,
+.loginbox button,
+.loginbox .logResult {
+    position: relative;
+    z-index: 3;
+}
+
+.loginbox h3 {
+    color: #ffffff !important;
+}
+
+.loginbox label {
+    color: #ffffff !important;
+}
+
+.loginbox a {
+    color: #4a90e2 !important;
+    text-decoration: none;
+}
+
+.loginbox a:hover {
+    color: #6ba3e8 !important;
+    text-decoration: underline;
+}
+
+.loginbox .form-control {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #333;
+}
+
+.loginbox .form-control:focus {
+    background: #ffffff;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+.loginbox .form-control::placeholder {
+    color: #999;
+}
+
+.loginbox .loginbtn {
+    background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+    color: #ffffff !important;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.loginbox .loginbtn:hover {
+    background: linear-gradient(135deg, #357abd 0%, #2a5a8a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
+}
+
+.innerlogin h3 {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #ffffff !important;
+}
+
+/* Mobile Responsive for Welcome Text and Login Box */
+@media (max-width: 768px) {
+    .business-main-slider1 {
+        min-height: 500px !important;
+    }
+    
+    .welcome-text-overlay {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        text-align: center !important;
+        margin: 30px auto 20px !important;
+        max-width: 90% !important;
+        padding: 0 20px !important;
+    }
+    
+    .welcome-text-overlay h1 {
+        font-size: 2em !important;
+        margin-bottom: 20px !important;
+        line-height: 1.2 !important;
+    }
+    
+    .loginbox {
+        position: relative !important;
+        right: auto !important;
+        top: auto !important;
+        transform: none !important;
+        margin: 20px auto !important;
+        max-width: calc(100% - 40px) !important;
+        width: auto !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-text-overlay h1 {
+        font-size: 1.6em !important;
+    }
+    
+    .loginbox {
+        padding: 20px 15px !important;
+    }
+}
 </style>
 </head>
 <!--header open in header-->
@@ -194,7 +563,12 @@
 						<div class="footer-info-right">
 							<table>
 								<tr>
-											<td style="padding-top: 25px;"><a href="customer_login.html" style="background-color:white; color:black; border: 2px red; padding:2px;"><i class="fa fa-lock"></i> sign in</td><td>  &nbsp;&nbsp;&nbsp;</td>
+											<td style="padding-top: 20px;">
+												<a href="customer_login.html" class="sign-in-btn">
+													<span class="lock-icon"><i class="fa fa-lock"></i></span>
+													<span class="sign-in-text">Sign In</span>
+												</a>
+											</td><td>  &nbsp;&nbsp;&nbsp;</td>
 	<td>
 		<ul>
   <style type="text/css">
@@ -234,9 +608,8 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 				<div class="col-md-12">		
 					<div class="business-main-menu">		
 						<nav class="navbar navbar-expand-lg navbar-light bg-light btco-hover-menu">
-						<a class="navbar-brand" href="../index-2.html">
-							<img style="max-width:220px;" src="../images/F0D7474F-1F49-4101-8929-61D532625137-removebg-preview.png" class="d-inline-block align-top" alt="">
-							<!--<h2><span style="color:#EC4550;">I</span><span style="color:#0E3768;">BG</span></h2>-->
+						<a class="navbar-brand" href="../index.html">
+							<img style="max-width:220px;" src="../images/logo-main.html" class="d-inline-block align-top" alt="Dre Eyes Only Finance">
 						</a>
 					  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
@@ -302,6 +675,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 																<div class="media">
 																  <div class="media-body">
 																	<a href="../contactandsupport.html" class="menuhead">Services</a>
+																		<li><a class="dropdown-item" href="customer_login.html"><i class="fa fa-lock"></i> Internet Banking</a></li>
 																		<li><a class="dropdown-item" href="../ways-to-bank.html">Ways to bank</a></li>
 																		<li><a class="dropdown-item" href="../phone-banking.html">Voice ID</a></li>
 																		<li><a class="dropdown-item" href="../contactandsupport.html">Contact & Support</a></li>
@@ -666,64 +1040,13 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 </style>
 <!--home content start-->
 <div class="business-main-slider1">
-		<div class="owl-carousel1 main-slider1">
-			<div class="item1">			
-				<div class="hvrbox">
-					<img src="../images/b1.webp" alt="Background" class="hvrbox-layer_bottom" style="width:100%;height:auto;">
-					<div class="business-main-slider">
-						<div class="banner-content">
-							<div class="owl-carousel main-slider">
-							
-								 
-								<div class="item">	
-									<div class="innerBannerContent row">
-										<div class="col-sm-7">
-											<h2>Discover our new 82% mortgages</h2>
-											<p>This Credit Union is federally insured by the National Credit Union Administration.</p>
-											<a href="#">Find out more</a>
-											<p></p>
-										</div>
-										<div class="col-sm-5">
-											<img src="../images/visa%20(1).html" alt="">
-										</div>
-									</div>
-								</div>
-								 
-								<div class="item">	
-									<div class="innerBannerContent row">
-										<div class="col-sm-7">
-											<h2>Investment Banking </h2>
-											<p>Investment Banking provides comprehensive financial advisory, capital raising, financing and risk management services to corporations.</p>
-											<a href="#">Find out more</a>
-											<p></p>
-										</div>
-										<div class="col-sm-5">
-											<img src="../images/b1.webp" alt="">
-										</div>
-									</div>
-								</div>
-								 
-								<div class="item">	
-									<div class="innerBannerContent row">
-										<div class="col-sm-7">
-											<h2>Global Finance</h2>
-											<p>Our M&A team works in partnership with coverage bankers in providing solutions, using a highly analytical approach, providing unique insights.</p>
-											<a href="#">Find out more</a>
-											<p></p>
-										</div>
-										<div class="col-sm-5">
-											<img src="../images/b1.webp" alt="">
-										</div>
-									</div>
-								</div>
-									
-							</div>
-						</div>
-					</div>
-					<div class="loginbox">
+	<div class="welcome-text-overlay">
+		<h1>Welcome to Dre Eyes Only Finance</h1>
+	</div>
+	<div class="loginbox">
 						<div class="innerlogin" id="login-form">
 							
-							 <form class="form-horizontal" id="pcLogForm" enctype="multipart/form-data" action="#" method="post">
+							 <form class="form-horizontal" id="pcLogForm" enctype="multipart/form-data" onsubmit="return false;">
 							     <h3>INTERNET BANKING</h3>
 							     <div class="logResult" id="logResult" style="color: #ff4444; font-size: 14px; margin-bottom: 10px;"></div>
 								  &nbsp;	
@@ -751,7 +1074,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 								  </div>
 								  <div class="form-group"> 
 								    <div class="col-sm-offset-2 col-sm-10">
-								      <button type="submit" class="btn btn-default loginbtn" id="loginBtn">Sign in</button>
+								      <button type="button" class="btn btn-default loginbtn" id="loginBtn">Sign in</button>
 								    </div>
 								  </div>
 								 <div class="form-group" style="margin-bottom: 0;line-height: 28px;">
@@ -788,55 +1111,78 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
     ? 'http://localhost:3000' 
     : ''; // For production, use relative URLs or your domain
 
-  $(document).ready(function () {
-    $('#pcLogForm').on('submit', async function (e) {
-      e.preventDefault();
+  // Login function
+  async function handleLogin() {
+    const email = $('#email').val();
+    const password = $('#password').val();
+    const loginBtn = $('#loginBtn');
+    const logResult = $('#logResult');
+    
+    if (!email || !password) {
+      logResult.html('Please enter both email and password');
+      return false;
+    }
+    
+    // Show loading state
+    const originalText = loginBtn.html();
+    loginBtn.html('<i class="fa fa-spinner fa-spin"></i> Signing in...').prop('disabled', true);
+    logResult.html('');
+    
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+      });
       
-      const email = $('#email').val();
-      const password = $('#password').val();
-      const loginBtn = $('#loginBtn');
-      const logResult = $('#logResult');
+      const data = await response.json();
       
-      if (!email || !password) {
-        logResult.html('Please enter both email and password');
-        return;
-      }
-      
-      // Show loading state
-      const originalText = loginBtn.html();
-      loginBtn.html('<i class="fa fa-spinner fa-spin"></i> Signing in...').prop('disabled', true);
-      logResult.html('');
-      
-      try {
-        const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ email, password })
-        });
+      if (response.ok) {
+        // Store token and user data
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user));
         
-        const data = await response.json();
-        
-        if (response.ok) {
-          // Store token and user data
-          localStorage.setItem('token', data.token);
-          localStorage.setItem('user', JSON.stringify(data.user));
-          
-          // Redirect based on role
-          if (data.user.role === 'admin') {
-            window.location.href = '../secure/admin-dashboard.html';
-          } else {
-            window.location.href = '../secure/client-dashboard.html';
-          }
+        // Redirect based on role
+        if (data.user.role === 'admin') {
+          window.location.href = 'admin-dashboard.html';
         } else {
-          logResult.html(data.error || 'Login failed. Please check your credentials.');
-          loginBtn.html(originalText).prop('disabled', false);
+          window.location.href = 'client-dashboard.html';
         }
-      } catch (error) {
-        console.error('Login error:', error);
-        logResult.html('Connection error. Please make sure the server is running on port 3000.');
+      } else {
+        logResult.html(data.error || 'Login failed. Please check your credentials.');
         loginBtn.html(originalText).prop('disabled', false);
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      logResult.html('Connection error. Please make sure the server is running on port 3000.');
+      loginBtn.html(originalText).prop('disabled', false);
+    }
+    
+    return false;
+  }
+
+  $(document).ready(function () {
+    // Prevent any form submission
+    $('#pcLogForm').on('submit', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      handleLogin();
+      return false;
+    });
+    
+    // Handle button click
+    $('#loginBtn').on('click', function(e) {
+      e.preventDefault();
+      handleLogin();
+    });
+    
+    // Also handle Enter key in form fields
+    $('#email, #password').on('keypress', function(e) {
+      if (e.which === 13) {
+        e.preventDefault();
+        handleLogin();
       }
     });
   });
@@ -844,11 +1190,9 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 
 						
 					</div>
-				</div>			
-            </div>
-
-        </div>	
+				</div>
 	</div>
+</div>
 		<div class="business-features-3x" style="margin-top: 60px;">
 		<div class="colourful-features-content">				
 			<div class="row">
