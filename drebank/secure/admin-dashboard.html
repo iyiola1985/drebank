@@ -339,6 +339,20 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="table-card">
+                        <h3><i class="fa fa-clock-o"></i> Pending User Approvals</h3>
+                        <div id="pendingUsersContainer">
+                            <div class="loading">
+                                <i class="fa fa-spinner fa-spin fa-2x"></i>
+                                <p>Loading pending users...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-md-12">
+                    <div class="table-card">
                         <h3><i class="fa fa-exchange"></i> All Transactions</h3>
                         <div id="transactionsContainer">
                             <div class="loading">
@@ -399,7 +413,8 @@
             await Promise.all([
                 loadAccounts(),
                 loadUsers(),
-                loadTransactions()
+                loadTransactions(),
+                loadPendingUsers()
             ]);
         }
         
@@ -519,6 +534,115 @@
                 console.error('Error loading transactions:', error);
                 document.getElementById('transactionsContainer').innerHTML = 
                     '<p style="color: #666; text-align: center; padding: 20px;">Error loading transactions.</p>';
+            }
+        }
+        
+        // Load pending users
+        async function loadPendingUsers() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/admin/pending-users`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                if (response.status === 401 || response.status === 403) {
+                    logout();
+                    return;
+                }
+                
+                const pendingUsers = await response.json();
+                displayPendingUsers(pendingUsers);
+            } catch (error) {
+                console.error('Error loading pending users:', error);
+                const container = document.getElementById('pendingUsersContainer');
+                if (container) {
+                    container.innerHTML = '<p style="color: #666; text-align: center; padding: 20px;">Error loading pending users.</p>';
+                }
+            }
+        }
+        
+        function displayPendingUsers(users) {
+            const container = document.getElementById('pendingUsersContainer');
+            if (!container) return;
+            
+            if (users.length === 0) {
+                container.innerHTML = '<p style="color: #666; text-align: center; padding: 20px;">No pending registrations</p>';
+                return;
+            }
+            
+            let html = '<h3 style="margin-bottom: 20px; color: #1a1a2e;"><i class="fa fa-clock-o"></i> Pending User Approvals</h3>';
+            html += '<div class="table-responsive"><table class="table" style="background: #fff; border-radius: 8px; overflow: hidden;"><thead><tr style="background: #f8f9fa;"><th>Name</th><th>Email</th><th>Registered</th><th>Actions</th></tr></thead><tbody>';
+            
+            users.forEach(user => {
+                const date = user.createdAt ? new Date(user.createdAt).toLocaleDateString() : 'N/A';
+                html += `
+                    <tr>
+                        <td><strong>${user.name || 'N/A'}</strong></td>
+                        <td>${user.email}</td>
+                        <td>${date}</td>
+                        <td>
+                            <button class="btn btn-success btn-sm" onclick="approveUser(${user.id})" style="margin-right: 5px;">
+                                <i class="fa fa-check"></i> Approve
+                            </button>
+                            <button class="btn btn-danger btn-sm" onclick="rejectUser(${user.id})">
+                                <i class="fa fa-times"></i> Reject
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            html += '</tbody></table></div>';
+            container.innerHTML = html;
+        }
+        
+        async function approveUser(userId) {
+            if (!confirm('Approve this user? An account will be created automatically.')) return;
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/admin/users/${userId}/approve`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    showAlert('User approved successfully! Account created.', 'success');
+                    loadPendingUsers();
+                    loadAccounts(); // Refresh accounts list
+                } else {
+                    const data = await response.json();
+                    showAlert(data.error || 'Failed to approve user', 'error');
+                }
+            } catch (error) {
+                console.error('Error approving user:', error);
+                showAlert('Error approving user', 'error');
+            }
+        }
+        
+        async function rejectUser(userId) {
+            if (!confirm('Reject this user? They will not be able to login.')) return;
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/admin/users/${userId}/reject`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    showAlert('User rejected', 'success');
+                    loadPendingUsers();
+                } else {
+                    const data = await response.json();
+                    showAlert(data.error || 'Failed to reject user', 'error');
+                }
+            } catch (error) {
+                console.error('Error rejecting user:', error);
+                showAlert('Error rejecting user', 'error');
             }
         }
         

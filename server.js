@@ -20,14 +20,16 @@ let users = [
     email: 'client@drebank.com',
     password: '$2a$10$rOzJqKqKqKqKqKqKqKqKqO', // password: client123
     role: 'client',
-    name: 'John Client'
+    name: 'John Client',
+    approvalStatus: 'approved'
   },
   {
     id: 2,
     email: 'admin@drebank.com',
     password: '$2a$10$rOzJqKqKqKqKqKqKqKqKqO', // password: admin123
     role: 'admin',
-    name: 'Admin User'
+    name: 'Admin User',
+    approvalStatus: 'approved'
   }
 ];
 
@@ -120,8 +122,22 @@ app.post('/api/auth/login', async (req, res) => {
     return res.status(400).json({ error: 'Invalid email or password' });
   }
 
+  // Check approval status
+  if (user.approvalStatus === 'pending') {
+    return res.status(403).json({ 
+      error: 'Your account is pending approval. Please wait for admin approval.' 
+    });
+  }
+
+  if (user.approvalStatus === 'rejected') {
+    return res.status(403).json({ 
+      error: 'Your account has been rejected. Please contact support.' 
+    });
+  }
+
   // For MVP, simple password check (in production, use bcrypt)
-  const validPassword = password === 'client123' || password === 'admin123';
+  const validPassword = password === 'client123' || password === 'admin123' || 
+                       await verifyPassword(password, user.password);
   if (!validPassword) {
     return res.status(400).json({ error: 'Invalid email or password' });
   }
@@ -138,7 +154,8 @@ app.post('/api/auth/login', async (req, res) => {
       id: user.id,
       email: user.email,
       name: user.name,
-      role: user.role
+      role: user.role,
+      approvalStatus: user.approvalStatus
     }
   });
 });
@@ -157,24 +174,21 @@ app.post('/api/auth/register', async (req, res) => {
     email,
     password: hashedPassword,
     role: 'client',
-    name: name || 'New User'
+    name: name || 'New User',
+    approvalStatus: 'pending',
+    createdAt: new Date().toISOString()
   };
 
   users.push(newUser);
 
-  // Create default account
-  const newAccount = {
-    id: accounts.length + 1,
-    userId: newUser.id,
-    accountNumber: String(Math.floor(1000000000 + Math.random() * 9000000000)),
-    balance: 1000.00, // Starting balance for testing
-    status: 'active',
-    type: 'checking',
-    accountName: 'Primary Account'
-  };
-  accounts.push(newAccount);
+  // Don't create account yet - wait for approval
+  // Account will be created when admin approves
 
-  res.json({ message: 'User registered successfully', userId: newUser.id });
+  res.json({ 
+    message: 'Registration submitted successfully. Your account is pending approval.', 
+    userId: newUser.id,
+    approvalStatus: 'pending'
+  });
 });
 
 // Verify token
@@ -344,6 +358,76 @@ app.delete('/api/admin/accounts/:id', authenticateToken, isAdmin, (req, res) => 
 // Get all transactions (admin only)
 app.get('/api/admin/transactions', authenticateToken, isAdmin, (req, res) => {
   res.json(transactions.sort((a, b) => new Date(b.date) - new Date(a.date)));
+});
+
+// Get pending registrations (admin only)
+app.get('/api/admin/pending-users', authenticateToken, isAdmin, (req, res) => {
+  const pendingUsers = users
+    .filter(u => u.approvalStatus === 'pending')
+    .map(u => ({
+      id: u.id,
+      email: u.email,
+      name: u.name,
+      createdAt: u.createdAt,
+      approvalStatus: u.approvalStatus
+    }));
+  res.json(pendingUsers);
+});
+
+// Approve user (admin only)
+app.post('/api/admin/users/:id/approve', authenticateToken, isAdmin, (req, res) => {
+  const userId = parseInt(req.params.id);
+  const user = users.find(u => u.id === userId);
+  
+  if (!user) {
+    return res.status(404).json({ error: 'User not found' });
+  }
+
+  user.approvalStatus = 'approved';
+  
+  // Create default account when approved
+  const newAccount = {
+    id: accounts.length + 1,
+    userId: user.id,
+    accountNumber: String(Math.floor(1000000000 + Math.random() * 9000000000)),
+    balance: 1000.00, // Starting balance
+    status: 'active',
+    type: 'checking',
+    accountName: 'Primary Account'
+  };
+  accounts.push(newAccount);
+
+  res.json({ 
+    message: 'User approved successfully', 
+    user: {
+      id: user.id,
+      email: user.email,
+      name: user.name,
+      approvalStatus: user.approvalStatus
+    }
+  });
+});
+
+// Reject user (admin only)
+app.post('/api/admin/users/:id/reject', authenticateToken, isAdmin, (req, res) => {
+  const userId = parseInt(req.params.id);
+  const user = users.find(u => u.id === userId);
+  
+  if (!user) {
+    return res.status(404).json({ error: 'User not found' });
+  }
+
+  user.approvalStatus = 'rejected';
+  
+  res.json({ 
+    message: 'User rejected', 
+    user: {
+      id: user.id,
+      email: user.email,
+      name: user.name,
+      approvalStatus: user.approvalStatus
+    }
+  });
 });
 
 // Start server

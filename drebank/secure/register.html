@@ -310,12 +310,20 @@
                     const data = await response.json();
                     
                     if (response.ok) {
-                        registerResult.html('<div class="alert alert-success"><i class="fa fa-check-circle"></i> Account created successfully! Redirecting to login...</div>');
+                        registerResult.html(`
+                            <div class="alert alert-success">
+                                <i class="fa fa-check-circle"></i> 
+                                <strong>Registration Submitted!</strong><br>
+                                Your account has been created and is pending approval.<br>
+                                You will receive an email once your account is approved.<br>
+                                <small>You can try logging in, but access will be granted after approval.</small>
+                            </div>
+                        `);
                         
-                        // Redirect to login after 2 seconds
+                        // Redirect to login after 5 seconds
                         setTimeout(() => {
                             window.location.href = 'customer_login.html';
-                        }, 2000);
+                        }, 5000);
                     } else {
                         registerResult.html(`<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> ${data.error || 'Registration failed. Please try again.'}</div>`);
                         registerBtn.html(originalText).prop('disabled', false);
