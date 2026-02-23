@@ -621,6 +621,27 @@ body {
           margin-top:2px;
       }
       
+      /* Text logo fallback - shows if image fails to load */
+      .navbar-brand .logo-text {
+          display: none;
+          font-family: 'Poppins', 'Playfair Display', serif;
+          font-size: 24px;
+          font-weight: 800;
+          color: #1a1a2e;
+          margin-left: 10px;
+      }
+      
+      /* Show text logo if image fails */
+      .navbar-brand img[src=""],
+      .navbar-brand img:not([src]) {
+          display: none;
+      }
+      
+      .navbar-brand img[src=""] ~ .logo-text,
+      .navbar-brand img:not([src]) ~ .logo-text {
+          display: inline-block;
+      }
+      
       /* Professional Alignment & Styling Improvements */
       body {
           font-family: 'Roboto', 'Montserrat', Arial, sans-serif;
@@ -1392,9 +1413,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 				<div class="col-md-12">		
 					<div class="business-main-menu">		
 						<nav class="navbar navbar-expand-lg navbar-light bg-light btco-hover-menu">
-						<a class="navbar-brand" href="index.html">
-							<img style="max-width:220px; height: auto;" src="images/F0D7474F-1F49-4101-8929-61D532625137-removebg-preview.png" class="d-inline-block align-top" alt="Dre Eyes Only Finance">
-						</a>
+						<a class="navbar-brand" href="index.html"><img style="max-width:220px; height: auto;" src="images/F0D7474F-1F49-4101-8929-61D532625137-removebg-preview.png" class="d-inline-block align-top" alt="Dre Eyes Only Finance"><span class="logo-text" style="display: none;">Dre Eyes Only Finance</span></a>
 					  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					  </button>
