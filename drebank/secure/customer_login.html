@@ -299,6 +299,194 @@
     font-size: 0.95em;
     line-height: 1.6;
 }
+
+/* Bank Card Carousel Overlay */
+.bank-card-carousel-overlay {
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 6;
+    max-width: 420px;
+    width: 100%;
+}
+
+.bank-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    border-radius: 20px;
+    padding: 30px;
+    color: #ffffff;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bank-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(74, 144, 226, 0.2) 0%, transparent 70%);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.bank-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.bank-card-logo {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.bank-card-chip {
+    width: 50px;
+    height: 40px;
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    border-radius: 8px;
+    position: relative;
+}
+
+.bank-card-chip::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.bank-card-number {
+    font-size: 24px;
+    letter-spacing: 4px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    font-family: 'Courier New', monospace;
+}
+
+.bank-card-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.bank-card-holder {
+    flex: 1;
+}
+
+.bank-card-holder-label {
+    font-size: 11px;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.bank-card-holder-name {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.bank-card-expiry {
+    text-align: right;
+}
+
+.bank-card-expiry-label {
+    font-size: 11px;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.bank-card-expiry-date {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Card Variations */
+.bank-card.premium {
+    background: linear-gradient(135deg, #4a90e2 0%, #357abd 50%, #1a1a2e 100%);
+}
+
+.bank-card.gold {
+    background: linear-gradient(135deg, #d4af37 0%, #b8941f 50%, #8b6914 100%);
+}
+
+.bank-card.platinum {
+    background: linear-gradient(135deg, #e5e5e5 0%, #c0c0c0 50%, #808080 100%);
+    color: #1a1a2e;
+}
+
+.bank-card.platinum .bank-card-holder-label,
+.bank-card.platinum .bank-card-expiry-label {
+    color: #1a1a2e;
+}
+
+/* Carousel Controls */
+.bank-card-carousel-wrapper {
+    position: relative;
+}
+
+.bank-card-carousel .bx-wrapper {
+    margin: 0;
+    box-shadow: none;
+    border: none;
+}
+
+.bank-card-carousel .bx-pager {
+    display: none;
+}
+
+.bank-card-carousel .bx-controls-direction {
+    display: none;
+}
+
+@media (max-width: 992px) {
+    .bank-card-carousel-overlay {
+        left: 30px;
+        max-width: 350px;
+    }
+    
+    .bank-card {
+        padding: 25px;
+        min-height: 220px;
+    }
+    
+    .bank-card-number {
+        font-size: 20px;
+        letter-spacing: 3px;
+    }
+}
+
+@media (max-width: 768px) {
+    .bank-card-carousel-overlay {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        margin: 30px auto 20px !important;
+        max-width: 90% !important;
+    }
+}
 </style>
 </head>
 <!--header open in header-->
@@ -855,6 +1043,88 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 							</div>
 						</div>
 					</div>
+					<div class="bank-card-carousel-overlay">
+						<div class="bank-card-carousel-wrapper">
+							<ul class="bank-card-carousel">
+								<li>
+									<div class="bank-card premium">
+										<div class="bank-card-header">
+											<div class="bank-card-logo">DRE EYES ONLY</div>
+											<div class="bank-card-chip"></div>
+										</div>
+										<div class="bank-card-number">4532 •••• •••• 7890</div>
+										<div class="bank-card-details">
+											<div class="bank-card-holder">
+												<div class="bank-card-holder-label">Card Holder</div>
+												<div class="bank-card-holder-name">JOHN DOE</div>
+											</div>
+											<div class="bank-card-expiry">
+												<div class="bank-card-expiry-label">Expires</div>
+												<div class="bank-card-expiry-date">12/28</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="bank-card gold">
+										<div class="bank-card-header">
+											<div class="bank-card-logo">DRE EYES ONLY</div>
+											<div class="bank-card-chip"></div>
+										</div>
+										<div class="bank-card-number">5234 •••• •••• 5678</div>
+										<div class="bank-card-details">
+											<div class="bank-card-holder">
+												<div class="bank-card-holder-label">Card Holder</div>
+												<div class="bank-card-holder-name">JANE SMITH</div>
+											</div>
+											<div class="bank-card-expiry">
+												<div class="bank-card-expiry-label">Expires</div>
+												<div class="bank-card-expiry-date">09/27</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="bank-card platinum">
+										<div class="bank-card-header">
+											<div class="bank-card-logo">DRE EYES ONLY</div>
+											<div class="bank-card-chip"></div>
+										</div>
+										<div class="bank-card-number">6011 •••• •••• 3456</div>
+										<div class="bank-card-details">
+											<div class="bank-card-holder">
+												<div class="bank-card-holder-label">Card Holder</div>
+												<div class="bank-card-holder-name">ROBERT JONES</div>
+											</div>
+											<div class="bank-card-expiry">
+												<div class="bank-card-expiry-label">Expires</div>
+												<div class="bank-card-expiry-date">06/29</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="bank-card premium">
+										<div class="bank-card-header">
+											<div class="bank-card-logo">DRE EYES ONLY</div>
+											<div class="bank-card-chip"></div>
+										</div>
+										<div class="bank-card-number">4111 •••• •••• 9012</div>
+										<div class="bank-card-details">
+											<div class="bank-card-holder">
+												<div class="bank-card-holder-label">Card Holder</div>
+												<div class="bank-card-holder-name">SARAH WILSON</div>
+											</div>
+											<div class="bank-card-expiry">
+												<div class="bank-card-expiry-label">Expires</div>
+												<div class="bank-card-expiry-date">03/30</div>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
 					<div class="loginbox">
 						<div class="innerlogin" id="login-form">
 							
@@ -1399,6 +1669,32 @@ function myFunction() {
 	  			infiniteLoop: true,
 	  			mode: 'horizontal',
 			});
+		}
+		
+		// Initialize Bank Card Carousel
+		if (typeof $.fn.bxSlider !== 'undefined') {
+			try {
+				$('.bank-card-carousel').bxSlider({
+					mode: 'horizontal',
+					speed: 1000,
+					auto: true,
+					autoHover: true,
+					pager: false,
+					controls: false,
+					infiniteLoop: true,
+					slideWidth: 420,
+					minSlides: 1,
+					maxSlides: 1,
+					moveSlides: 1,
+					slideMargin: 0,
+					touchEnabled: true,
+					oneToOneTouch: true,
+					preventDefaultSwipeX: false,
+					preventDefaultSwipeY: true
+				});
+			} catch(e) {
+				console.error('Bank card carousel initialization error:', e);
+			}
 		}
 	}); 
 </script>
