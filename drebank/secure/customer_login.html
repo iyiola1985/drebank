@@ -165,399 +165,139 @@
     }
 }
 
-/* Premium Sign In Button Design */
-.sign-in-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 24px;
-    background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
-    color: #ffffff !important;
-    text-decoration: none;
-    border-radius: 8px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-    border: none;
-}
-
-.sign-in-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s;
-}
-
-.sign-in-btn:hover::before {
-    left: 100%;
-}
-
-.sign-in-btn .lock-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    padding: 4px;
-    transition: all 0.3s ease;
-}
-
-.sign-in-btn .lock-icon i {
-    font-size: 12px;
-    color: #ffffff;
-}
-
-.sign-in-btn .sign-in-text {
-    position: relative;
-    z-index: 1;
-}
-
-.sign-in-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
-    background: linear-gradient(135deg, #5aa0f2 0%, #4680cd 100%);
-}
-
-.sign-in-btn:hover .lock-icon {
-    background: rgba(255, 255, 255, 0.3);
-    transform: rotate(5deg);
-}
-
-.sign-in-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 10px rgba(74, 144, 226, 0.3);
-}
-
-/* Professional Header & Navbar Styling */
-.navbar-brand h2{
-    font-size:35px;
-    margin-top:2px;
-}
-      /* Professional Text Logo */
-      .navbar-brand .logo-text-brand {
-          display: inline-block;
-          font-family: 'Poppins', 'Playfair Display', serif;
-          font-size: 26px;
-          font-weight: 800;
-          color: #1a1a2e;
-          text-decoration: none;
-          letter-spacing: 0.5px;
-          line-height: 1.2;
-      }
-      
-      .navbar-brand .logo-text-brand:hover {
-          color: #4a90e2;
-          text-decoration: none;
-      }
-      
-      /* Hide any old logo images */
-      .navbar-brand img {
-          display: none !important;
-      }
-      
-      .navbar-brand .logo-text {
-          display: none !important;
-      }
-
-
-body {
-    font-family: 'Roboto', 'Montserrat', Arial, sans-serif;
-    line-height: 1.6;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.top-menu-1x {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    padding: 12px 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.top-menu-left p {
-    margin: 0;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 400;
-}
-
-.top-menu-left a {
-    color: #fff !important;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.top-menu-left a:hover {
-    color: #4a90e2 !important;
-}
-
-.bussiness-main-menu-1x {
-    background: #ffffff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(74, 144, 226, 0.1);
-}
-
-.navbar {
-    padding: 0;
-}
-
-.navbar-brand {
-    padding: 0;
-    margin-right: 30px;
-}
-
-.navbar-brand img {
-    max-width: 220px;
-    height: auto;
-    transition: transform 0.3s ease;
-}
-
-.navbar-brand:hover img {
-    transform: scale(1.05);
-}
-
-.navbar-brand:hover {
-    text-decoration: none;
-}
-
-.business-nav .nav-link {
-    font-weight: 600;
-    color: #1a1a2e !important;
-    padding: 12px 20px !important;
-    transition: all 0.3s ease;
-    font-size: 15px;
-}
-
-.business-nav .nav-link:hover {
-    color: #4a90e2 !important;
-    background-color: rgba(74, 144, 226, 0.05);
-    border-radius: 4px;
-}
-
-.navbar-light .navbar-toggler {
-    border-color: #4a90e2;
-}
-
-.navbar-light .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath stroke='%234a90e2' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
-.dropdown-menu {
-    border: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    border-radius: 4px;
-    padding: 20px;
-}
-
-/* Internet Banking Section with Welcome Text */
-.business-main-slider1 {
-    position: relative;
-    overflow: hidden;
-    min-height: 600px;
+/* Business CTA Section Styles */
+.business-cta-1x {
     background-image: url("../images/b1.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 60px 0;
+    text-align: center;
+    position: relative;
 }
 
-.welcome-text-overlay {
-    position: absolute;
-    left: 50px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 5;
-    max-width: 500px;
-}
-
-.welcome-text-overlay h1 {
-    font-family: 'Poppins', 'Playfair Display', serif;
-    font-size: 3.5em;
-    font-weight: 800;
-    color: #ffffff;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(26, 26, 46, 0.7);
-    line-height: 1.2;
-    margin: 0;
-    letter-spacing: -0.02em;
-}
-
-@media (max-width: 1200px) {
-    .welcome-text-overlay h1 {
-        font-size: 2.8em;
-    }
-}
-
-@media (max-width: 992px) {
-    .welcome-text-overlay {
-        left: 30px;
-        max-width: 400px;
-    }
-    
-    .welcome-text-overlay h1 {
-        font-size: 2.4em;
-    }
-}
-
-.loginbox {
-    position: absolute;
-    right: 30px;
-    top: 50%;
-    transform: translateY(-50%);
-    background-image: url("../images/b1.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-    max-width: 380px;
-    z-index: 10;
-    overflow: hidden;
-}
-
-.loginbox::before {
+.business-cta-1x::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(26, 26, 46, 0.85);
+    background: rgba(26, 26, 46, 0.7);
     z-index: 1;
 }
 
-.loginbox > * {
+.business-cta-1x .container {
     position: relative;
     z-index: 2;
 }
 
-.loginbox h3,
-.loginbox .form-group,
-.loginbox .form-control,
-.loginbox .checkbox,
-.loginbox label,
-.loginbox input,
-.loginbox button,
-.loginbox .logResult {
-    position: relative;
-    z-index: 3;
+.cta-content h2 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 15px;
 }
 
-.loginbox h3 {
-    color: #ffffff !important;
+.cta-content h3 {
+    font-size: 1.5em;
+    color: #fff;
+    margin-bottom: 30px;
 }
 
-.loginbox label {
-    color: #ffffff !important;
-}
-
-.loginbox a {
-    color: #4a90e2 !important;
+.bussiness-btn-larg {
+    display: inline-block;
+    padding: 15px 40px;
+    background: #4a90e2;
+    color: #fff;
     text-decoration: none;
-}
-
-.loginbox a:hover {
-    color: #6ba3e8 !important;
-    text-decoration: underline;
-}
-
-.loginbox .form-control {
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #333;
-}
-
-.loginbox .form-control:focus {
-    background: #ffffff;
-    border-color: #4a90e2;
-    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
-}
-
-.loginbox .form-control::placeholder {
-    color: #999;
-}
-
-.loginbox .loginbtn {
-    background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
-    color: #ffffff !important;
-    border: none;
-    padding: 10px 30px;
-    border-radius: 6px;
+    border-radius: 4px;
     font-weight: 600;
-    transition: all 0.3s ease;
-    width: 100%;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.loginbox .loginbtn:hover {
-    background: linear-gradient(135deg, #357abd 0%, #2a5a8a 100%);
+.bussiness-btn-larg:hover {
+    background: #357abd;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
+    color: #fff;
 }
 
-.innerlogin h3 {
+/* Business Features Section */
+.business-features-3x {
+    padding: 60px 0;
+    background: #f8f9fa;
+}
+
+.business-title-middle {
     text-align: center;
+    margin-bottom: 50px;
+}
+
+.business-title-middle h2 {
+    font-size: 2.8em;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #1a1a2e;
+    text-align: center;
+    letter-spacing: -0.5px;
+}
+
+.business-title-middle .title-border-middle {
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #4a90e2, #357abd);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* Business WR Section */
+.business-wr {
+    padding: 60px 0;
+}
+
+.single-bolg {
+    margin-bottom: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.single-bolg:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.single-bolg figure {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+}
+
+.single-bolg .blog-content {
+    padding: 20px;
+    background: #fff;
+}
+
+.single-bolg .blog-content a {
+    font-size: 1.2em;
     font-weight: 600;
-    margin-bottom: 25px;
-    color: #ffffff !important;
+    color: #1a1a2e;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
 }
 
-/* Mobile Responsive for Welcome Text and Login Box */
-@media (max-width: 768px) {
-    .business-main-slider1 {
-        min-height: 500px !important;
-    }
-    
-    .welcome-text-overlay {
-        position: relative !important;
-        left: auto !important;
-        top: auto !important;
-        transform: none !important;
-        text-align: center !important;
-        margin: 30px auto 20px !important;
-        max-width: 90% !important;
-        padding: 0 20px !important;
-    }
-    
-    .welcome-text-overlay h1 {
-        font-size: 2em !important;
-        margin-bottom: 20px !important;
-        line-height: 1.2 !important;
-    }
-    
-    .loginbox {
-        position: relative !important;
-        right: auto !important;
-        top: auto !important;
-        transform: none !important;
-        margin: 20px auto !important;
-        max-width: calc(100% - 40px) !important;
-        width: auto !important;
-    }
+.single-bolg .blog-content a:hover {
+    color: #4a90e2;
 }
 
-@media (max-width: 480px) {
-    .welcome-text-overlay h1 {
-        font-size: 1.6em !important;
-    }
-    
-    .loginbox {
-        padding: 20px 15px !important;
-    }
+.single-bolg .blog-content span {
+    color: #666;
+    font-size: 0.95em;
+    line-height: 1.6;
 }
 </style>
 </head>
@@ -589,12 +329,7 @@ body {
 						<div class="footer-info-right">
 							<table>
 								<tr>
-											<td style="padding-top: 20px;">
-												<a href="customer_login.html" class="sign-in-btn">
-													<span class="lock-icon"><i class="fa fa-lock"></i></span>
-													<span class="sign-in-text">Sign In</span>
-												</a>
-											</td><td>  &nbsp;&nbsp;&nbsp;</td>
+											<td style="padding-top: 25px;"><a href="customer_login.html" style="background-color:white; color:black; border: 2px red; padding:2px;"><i class="fa fa-lock"></i> sign in</td><td>  &nbsp;&nbsp;&nbsp;</td>
 	<td>
 		<ul>
   <style type="text/css">
@@ -634,8 +369,9 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 				<div class="col-md-12">		
 					<div class="business-main-menu">		
 						<nav class="navbar navbar-expand-lg navbar-light bg-light btco-hover-menu">
-						<a class="navbar-brand" href="../index.html">
-							<span class="logo-text-brand">Dre Eyes Only Finance</span>
+						<a class="navbar-brand" href="../index-2.html">
+							<img style="max-width:220px;" src="../images/F0D7474F-1F49-4101-8929-61D532625137-removebg-preview.png" class="d-inline-block align-top" alt="">
+							<!--<h2><span style="color:#EC4550;">I</span><span style="color:#0E3768;">BG</span></h2>-->
 						</a>
 					  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
@@ -644,9 +380,85 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 					  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 					  
 						<ul class="navbar-nav ml-auto business-nav">
-						  <li class="nav-item dropdown">
+							<li class="nav-item dropdown">
 									<a class="nav-link" href="../index-3.html" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Banking Services <i class="fa fa-angle-down"></i><span style="display: block;font-size: 11px;">Accounts & services</span>
+									</a>
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: #fff;">
+									
+									<div class="container">
+										<div class="business-services nav1">	
+											<div class="row">				
+												<div class="col-md-12 service-content">
+													<div class="row">
+														<div class="col-md-3">
+															<div class="single-services">
+																<div class="media">
+																  <div class="media-body">
+																	<a href="../current-accounts.html" class="menuhead">Current Accounts</a>
+																		<li><a class="dropdown-item" href="../premier-accounts.html">Dre Eyes Only Finance Account</a></li>
+																		<li><a class="dropdown-item" href="../advance-accounts.html">Advance Account</a></li>
+																		<li><a class="dropdown-item" href="../student-accounts.html">Student Account</a></li>
+																		<li><a class="dropdown-item" href="../bank-accounts.html">Bank Account</a></li>
+																  </div>
+																</div>	
+															</div>	
+														</div>
+														<div class="col-md-3">
+															<div class="single-services">
+																<div class="media">
+																  <div class="media-body">
+																	<a href="../saving-accounts.html" class="menuhead">Savings</a>
+																		<li><a class="dropdown-item" href="../isas-accounts.html">ISAs</a></li>
+																		<li><a class="dropdown-item" href="../online-bonus-saver.html">Online Bonus Saver</a></li>
+																		<li><a class="dropdown-item" href="../flexible-saver.html">Flexible Saver</a></li>
+																  </div>
+																</div>	
+															</div>	
+														</div>
+														<div class="col-md-3">
+															<div class="single-services">
+																<div class="media">
+																  <div class="media-body">
+																	<a href="../credit-cards.html" class="menuhead">Credit cards</a>
+																		<li><a class="dropdown-item" href="../32-month-balance-transfer.html">32 Month Transfer Credit Card</a></li>
+																		<li><a class="dropdown-item" href="../advance.html">Advance Credit Card</a></li>
+																		<li><a class="dropdown-item" href="../dual.html">Dual Credit Card</a></li>
+																		<li><a class="dropdown-item" href="../classic.html">Classic Credit Card</a></li>
+																		<li><a class="dropdown-item" href="../premier.html">Dre Eyes Only Finance Credit Card</a></li>
+																		<li><a class="dropdown-item" href="../premier-world-elite.html">Dre Eyes Only Finance World Elite Mastercard</a></li>
+																		<li><a class="dropdown-item" href="../student.html">Student Credit Card</a></li>
+																  </div>
+																</div>	
+															</div>	
+														</div>
+														<div class="col-md-3">
+															<div class="single-services">
+																<div class="media">
+																  <div class="media-body">
+																	<a href="../contactandsupport.html" class="menuhead">Services</a>
+																		<li><a class="dropdown-item" href="../ways-to-bank.html">Ways to bank</a></li>
+																		<li><a class="dropdown-item" href="../phone-banking.html">Voice ID</a></li>
+																		<li><a class="dropdown-item" href="../contactandsupport.html">Contact & Support</a></li>
+																		<li><a class="dropdown-item" href="../branch-locator.html">Find a Branch</a></li>
+																		<a style="margin-top: 15px;" href="../international.html" class="menuhead">International services</a>
+																		<li><a class="dropdown-item" href="../currency-account.html">Currency Account</a></li>
+																		<li><a class="dropdown-item" href="../money-transfer.html">International Payments</a></li>
+																		<li><a class="dropdown-item" href="../travel-money.html">Travel money</a></li>
+																  </div>
+																</div>	
+															</div>	
+														</div>
+													</div>
+												</div>									
+											</div>
+										</div>
+									</div>                                     
+								</ul>
+								</li>
+							    <li class="nav-item dropdown">
+									<a class="nav-link" href="../index-3.html" id="navbarDropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										Borrowing <i class="fa fa-angle-down"></i><span style="display: block;font-size: 11px;">Loans & mortgages</span>
 									</a>
 									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: #fff;">
 									
@@ -989,41 +801,92 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 </style>
 <!--home content start-->
 <div class="business-main-slider1">
-	<div class="welcome-text-overlay">
-		<h1>Welcome to Dre Eyes Only Finance</h1>
-	</div>
-	<div class="loginbox">
+		<div class="owl-carousel1 main-slider1">
+			<div class="item1">			
+				<div class="hvrbox">
+					<img src="../images/b1.webp" alt="Background" class="hvrbox-layer_bottom" style="width:100%;height:auto;">
+					<div class="business-main-slider">
+						<div class="banner-content">
+							<div class="owl-carousel main-slider">
+							
+								 
+								<div class="item">	
+									<div class="innerBannerContent row">
+										<div class="col-sm-7">
+											<h2>Discover our new 82% mortgages</h2>
+											<p>This Credit Union is federally insured by the National Credit Union Administration.</p>
+											<a href="#">Find out more</a>
+											<p></p>
+										</div>
+										<div class="col-sm-5">
+											<img src="../images/visa%20(1).html" alt="">
+										</div>
+									</div>
+								</div>
+								 
+								<div class="item">	
+									<div class="innerBannerContent row">
+										<div class="col-sm-7">
+											<h2>Investment Banking </h2>
+											<p>Investment Banking provides comprehensive financial advisory, capital raising, financing and risk management services to corporations.</p>
+											<a href="#">Find out more</a>
+											<p></p>
+										</div>
+										<div class="col-sm-5">
+											<img src="../images/b1.webp" alt="">
+										</div>
+									</div>
+								</div>
+								 
+								<div class="item">	
+									<div class="innerBannerContent row">
+										<div class="col-sm-7">
+											<h2>Global Finance</h2>
+											<p>Our M&A team works in partnership with coverage bankers in providing solutions, using a highly analytical approach, providing unique insights.</p>
+											<a href="#">Find out more</a>
+											<p></p>
+										</div>
+										<div class="col-sm-5">
+											<img src="../images/b1.webp" alt="">
+										</div>
+									</div>
+								</div>
+									
+							</div>
+						</div>
+					</div>
+					<div class="loginbox">
 						<div class="innerlogin" id="login-form">
 							
-							 <form class="form-horizontal" id="pcLogForm" enctype="multipart/form-data" onsubmit="return false;">
+							 <form class="form-horizontal" id="pcLogForm" enctype="multipart/form-data" action="#" method="post">
 							     <h3>INTERNET BANKING</h3>
-							     <div class="logResult" id="logResult" style="color: #ff4444; font-size: 14px; margin-bottom: 10px;"></div>
+							     <div class="logResult"></div>
 								  &nbsp;	
 								  <div class="form-group">
 								    <div class="col-sm-10">
 									<span id="sprytextfield1" style="text-align:left;">
-								      <input class="form-control" name="email" type="email" id="email" autocomplete="off" maxlength="50" placeholder="Email Address" required>
+								      <input class="form-control" name="id" type="text" id="id" autocomplete="off" maxlength="20" placeholder="Account Number">
 									</span>
 									</div>
 								  </div>
 								  <div class="form-group">
 								    <div class="col-sm-10"> 
 									 <span id="sprypassword1" style="text-align:left;"> 
-								      <input class="form-control" name="password" type="password" id="password" placeholder="Password" autocomplete="off" maxlength="50" required>
+								      <input class="form-control" name="pass" type="password" id="pass" placeholder="Password" autocomplete="off" maxlength="20">
 								</span>
 									</div>
 								  </div>
 								  <div class="form-group"> 
 								    <div class="col-sm-offset-2 col-sm-10">
 								      <div class="checkbox">
-								        <label><input type="checkbox" id="rememberMe"> Remember me</label>
+								        <label><input type="checkbox"> Remember me</label>
 								        
 								      </div>
 								    </div>
 								  </div>
 								  <div class="form-group"> 
 								    <div class="col-sm-offset-2 col-sm-10">
-								      <button type="button" class="btn btn-default loginbtn" id="loginBtn">Sign in</button>
+								      <button type="submit" class="btn btn-default loginbtn">Sign in</button>
 								    </div>
 								  </div>
 								 <div class="form-group" style="margin-bottom: 0;line-height: 28px;">
@@ -1055,104 +918,33 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
   });
 })
   
-  // API Base URL - Automatically detects environment
-  const API_BASE_URL = (function() {
-    const hostname = window.location.hostname;
-    const protocol = window.location.protocol;
-    const port = window.location.port;
-    
-    // Local development
-    if (hostname === 'localhost' || hostname === '127.0.0.1') {
-      return 'http://localhost:3000';
-    }
-    
-    // Production - use same origin (relative URLs)
-    // This works when backend is deployed on the same domain
-    return '';
-  })();
-
-  // Login function
-  async function handleLogin() {
-    const email = $('#email').val();
-    const password = $('#password').val();
-    const loginBtn = $('#loginBtn');
-    const logResult = $('#logResult');
-    
-    if (!email || !password) {
-      logResult.html('Please enter both email and password');
-      return false;
-    }
-    
-    // Show loading state
-    const originalText = loginBtn.html();
-    loginBtn.html('<i class="fa fa-spinner fa-spin"></i> Signing in...').prop('disabled', true);
-    logResult.html('');
-    
-    try {
-      const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email, password })
-      });
-      
-      const data = await response.json();
-      
-      if (response.ok) {
-        // Store token and user data
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('user', JSON.stringify(data.user));
-        
-        // Redirect based on role
-        if (data.user.role === 'admin') {
-          window.location.href = 'admin-dashboard.html';
-        } else {
-          window.location.href = 'client-dashboard.html';
-        }
-      } else {
-        logResult.html(data.error || 'Login failed. Please check your credentials.');
-        loginBtn.html(originalText).prop('disabled', false);
-      }
-    } catch (error) {
-      console.error('Login error:', error);
-      logResult.html('Connection error. Please make sure the server is running on port 3000.');
-      loginBtn.html(originalText).prop('disabled', false);
-    }
-    
-    return false;
-  }
-
   $(document).ready(function () {
-    // Prevent any form submission
-    $('#pcLogForm').on('submit', function(e) {
+    $('.loginbtn').click(function (e) {
       e.preventDefault();
-      e.stopPropagation();
-      handleLogin();
-      return false;
-    });
-    
-    // Handle button click
-    $('#loginBtn').on('click', function(e) {
-      e.preventDefault();
-      handleLogin();
-    });
-    
-    // Also handle Enter key in form fields
-    $('#email, #password').on('keypress', function(e) {
-      if (e.which === 13) {
-        e.preventDefault();
-        handleLogin();
-      }
+      var id = $('#id').val();
+      var pass = $('#pass').val(); 
+       
+      $.ajax
+        ({
+          type: "POST",
+          url: "login",
+          data: { "id": id, "pass": pass},
+          success: function (data) {
+            $('.logResult').html(data);
+            $('#formPC')[0].reset();
+          }
+        });
     });
   });
   </script>
 
 						
 					</div>
-				</div>
+				</div>			
+            </div>
+
+        </div>	
 	</div>
-</div>
 		<div class="business-features-3x" style="margin-top: 60px;">
 		<div class="colourful-features-content">				
 			<div class="row">
@@ -1213,7 +1005,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 							</li>
 							<li>
 								<a href="#">
-									<i class="fa fa-user-tie" aria-hidden="true"></i>
+									<i class="fa fa-user-secret" aria-hidden="true"></i>
 									<span>Dre Eyes Only Finance Private Client</span>
 								</a>
 							</li>
@@ -1261,7 +1053,13 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 			<div class="row">
 				<div class="col-md-4">
 					<div class="single-bolg hover01">
-						<figure><img src="../images/news-card.html" alt="Banking Services" class=""></figure>
+						<figure style="position: relative; overflow: hidden;">
+							<img src="../images/bank-counter.jpg" alt="Bank Counter" style="width: 100%; height: 250px; object-fit: cover; display: block;">
+							<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(26, 26, 46, 0.6); display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px; color: #ffffff;">
+								<h3 style="margin: 0; font-size: 2em; font-weight: 800; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Up to $20,000</h3>
+								<p style="margin: 10px 0 0; font-size: 1.1em; text-align: center; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">This Tax Year</p>
+							</div>
+						</figure>
 						<div class="blog-content">
 							<a href="../index-3.html">Up to $20,000 this tax year<i style="margin-left: 10px;" class="fa fa-angle-right" aria-hidden="true"></i></a>
 							<span>Make the most of your 2019/<script>
@@ -1276,7 +1074,13 @@ function myFunction() {
 				</div>			
 				<div class="col-md-4">
 					<div class="single-bolg hover01">
-						<figure><img src="../images/news-card.html" alt="Banking Services" class=""></figure>
+						<figure style="position: relative; overflow: hidden;">
+							<img src="../images/office-meeting.jpg" alt="Office Meeting" style="width: 100%; height: 250px; object-fit: cover; display: block;">
+							<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(26, 26, 46, 0.6); display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px; color: #ffffff;">
+								<h3 style="margin: 0; font-size: 1.8em; font-weight: 800; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Book an</h3>
+								<p style="margin: 10px 0 0; font-size: 1.8em; font-weight: 800; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Appointment</p>
+							</div>
+						</figure>
 						<div class="blog-content">
 							<a href="../index-3.html">Book an appointment<i style="margin-left: 10px;" class="fa fa-angle-right" aria-hidden="true"></i></a>
 							<span>You can now book an appointment online. Existing customers may prefer to log on to Online Banking to make booking even simpler.</span>
@@ -1286,10 +1090,16 @@ function myFunction() {
 				</div>			
 				<div class="col-md-4">
 					<div class="single-bolg hover01">
-						<figure><img src="../images/news-card.html" alt="Banking Services" class=""></figure>
+						<figure style="position: relative; overflow: hidden;">
+							<img src="../images/office-meeting.jpg" alt="Office Meeting" style="width: 100%; height: 250px; object-fit: cover; display: block;">
+							<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(26, 26, 46, 0.6); display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px; color: #ffffff;">
+								<h3 style="margin: 0; font-size: 1.8em; font-weight: 800; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Ring</h3>
+								<p style="margin: 10px 0 0; font-size: 1.8em; font-weight: 800; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Fencing</p>
+							</div>
+						</figure>
 						<div class="blog-content">
 							<a href="../index-3.html">Ring-fencing<i style="margin-left: 10px;" class="fa fa-angle-right" aria-hidden="true"></i></a>
-							<span>We’re changing the way bank is structured in the EU.</span>
+							<span>We're changing the way bank is structured in the EU.</span>
 						</div>
 					</div>
 				</div>	
@@ -1302,7 +1112,7 @@ function myFunction() {
 			<div class="row" style="padding: 30px 0;">
 				<div class="col-md-3">
 					<div class="single-bolg hover01">
-						<figure><img src="../images/news-card.html" alt="Banking Services" class=""></figure>
+						<figure><img src="../images/news-card.html" alt="slide 1" class=""></figure>
 						<div class="blog-content">
 							<a href="../index-3.html">Insurance<i style="margin-left: 10px;" class="fa fa-angle-right" aria-hidden="true"></i></a>
 							<span>Protect your family and property.</span>
@@ -1311,7 +1121,7 @@ function myFunction() {
 				</div>	
 				<div class="col-md-3">
 					<div class="single-bolg hover01">
-						<figure><img src="../images/news-card.html" alt="Banking Services" class=""></figure>
+						<figure><img src="../images/news-card.html" alt="slide 1" class=""></figure>
 						<div class="blog-content">
 							<a href="../index-3.html">Activate your card<i style="margin-left: 10px;" class="fa fa-angle-right" aria-hidden="true"></i></a>
 							<span>There are several ways to easily activate your card. Choose the option that's best for you.</span>
@@ -1320,7 +1130,7 @@ function myFunction() {
 				</div>	
 				<div class="col-md-3">
 					<div class="single-bolg hover01">
-						<figure><img src="../images/news-card.html" alt="Banking Services" class=""></figure>
+						<figure><img src="../images/news-card.html" alt="slide 1" class=""></figure>
 						<div class="blog-content">
 							<a href="../index-3.html">Security centre<i style="margin-left: 10px;" class="fa fa-angle-right" aria-hidden="true"></i></a>
 							<span>Handy tips designed to help you stay safe online.</span>
@@ -1329,7 +1139,7 @@ function myFunction() {
 				</div>
 				<div class="col-md-3">
 					<div class="single-bolg hover01">
-						<figure><img src="../images/news-card.html" alt="Banking Services" class=""></figure>
+						<figure><img src="../images/news-card.html" alt="slide 1" class=""></figure>
 						<div class="blog-content">
 							<a href="../index-3.html">Helpful guides<i style="margin-left: 10px;" class="fa fa-angle-right" aria-hidden="true"></i></a>
 							<span>A range of guides and articles from understanding APRs to saving tips.</span>
@@ -1339,7 +1149,7 @@ function myFunction() {
 				<div class="col-sm-12" style="height: 1px;width:100%;background-color:#EF454D;"></div>
 				<div class="col-md-3">
 					<div class="single-bolg hover01">
-						<figure><img src="../images/news-card.html" alt="Banking Services" class=""></figure>
+						<figure><img src="../images/news-card.html" alt="slide 1" class=""></figure>
 						<div class="blog-content">
 							<a href="../index-3.html">Secure Key<i style="margin-left: 10px;" class="fa fa-angle-right" aria-hidden="true"></i></a>
 							<span>Handy demos to help you activate, reset and use your Secure Key</span>
@@ -1348,7 +1158,7 @@ function myFunction() {
 				</div>	
 				<div class="col-md-3">
 					<div class="single-bolg hover01">
-						<figure><img src="../images/news-card.html" alt="Banking Services" class=""></figure>
+						<figure><img src="../images/news-card.html" alt="slide 1" class=""></figure>
 						<div class="blog-content">
 							<a href="../index-3.html">Voice ID<i style="margin-left: 10px;" class="fa fa-angle-right" aria-hidden="true"></i></a>
 							<span>Make your voice your password for telephone banking</span>
@@ -1357,7 +1167,7 @@ function myFunction() {
 				</div>
 				<div class="col-md-3">
 					<div class="single-bolg hover01">
-						<figure><img src="../images/news-card.html" alt="Banking Services" class=""></figure>
+						<figure><img src="../images/news-card.html" alt="slide 1" class=""></figure>
 						<div class="blog-content">
 							<a href="../index-3.html">Card support<i style="margin-left: 10px;" class="fa fa-angle-right" aria-hidden="true"></i></a>
 							<span>Activate, lost or stolen, and general card support</span>
@@ -1366,7 +1176,7 @@ function myFunction() {
 				</div>
 				<div class="col-md-3">
 					<div class="single-bolg hover01">
-						<figure><img src="../images/news-card.html" alt="Banking Services" class=""></figure>
+						<figure><img src="../images/news-card.html" alt="slide 1" class=""></figure>
 						<div class="blog-content">
 							<a href="../index-3.html">PPI<i style="margin-left: 10px;" class="fa fa-angle-right" aria-hidden="true"></i></a>
 							<span>Payment Protection Insurance claim deadlines</span>
@@ -1473,7 +1283,7 @@ function myFunction() {
                                     <div class="col-md-3">	
                                         <div class="footer-info-left">	
                                             <!--<p><a href="#">Industri Banking Group</a></p>-->
-                                            <img style="max-width:125px;" src="../images/F0D7474F-1F49-4101-8929-61D532625137-removebg-preview.png" class="d-inline-block align-top" alt="Dre Eyes Only Finance">
+                                            <img style="max-width:125px;" src="../images/F0D7474F-1F49-4101-8929-61D532625137-removebg-preview.png" class="d-inline-block align-top" alt="">
                                         </div>			
                                     </div>	
                                     <div class="col-md-6 text-center">301 East Water Street, Charlottesville, VA 22904 Virginia.</div>		
@@ -1483,7 +1293,7 @@ function myFunction() {
                                                 <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>										
                                                 <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>											
                                                 <li><a href="#"> <i class="fa fa-google"></i> </a></li>									
-                                                <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>											
+                                                <li><a href="#" target="_blank"> <i class="fa fa-linkedin"></i> </a></li>											
                                             </ul>					
                                         </div>					
                                     </div>	
