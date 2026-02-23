@@ -822,11 +822,11 @@ body {
       }
       
       .bank-card {
-          background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+          background: transparent;
           border-radius: 20px;
           padding: 30px;
           color: #ffffff;
-          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+          box-shadow: none;
           position: relative;
           overflow: hidden;
           min-height: 250px;
@@ -836,19 +836,7 @@ body {
       }
       
       .bank-card::before {
-          content: '';
-          position: absolute;
-          top: -50%;
-          right: -50%;
-          width: 200%;
-          height: 200%;
-          background: radial-gradient(circle, rgba(74, 144, 226, 0.2) 0%, transparent 70%);
-          animation: pulse 4s ease-in-out infinite;
-      }
-      
-      @keyframes pulse {
-          0%, 100% { transform: scale(1); opacity: 0.5; }
-          50% { transform: scale(1.1); opacity: 0.8; }
+          display: none;
       }
       
       .bank-card-header {
@@ -862,6 +850,7 @@ body {
           font-size: 24px;
           font-weight: 800;
           letter-spacing: 1px;
+          text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
       }
       
       .bank-card-chip {
@@ -889,6 +878,7 @@ body {
           font-weight: 600;
           margin-bottom: 30px;
           font-family: 'Courier New', monospace;
+          text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
       }
       
       .bank-card-details {
@@ -903,16 +893,18 @@ body {
       
       .bank-card-holder-label {
           font-size: 11px;
-          opacity: 0.7;
+          opacity: 0.9;
           text-transform: uppercase;
           letter-spacing: 1px;
           margin-bottom: 5px;
+          text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 0, 0, 0.5);
       }
       
       .bank-card-holder-name {
           font-size: 18px;
           font-weight: 600;
           text-transform: uppercase;
+          text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
       }
       
       .bank-card-expiry {
@@ -921,15 +913,17 @@ body {
       
       .bank-card-expiry-label {
           font-size: 11px;
-          opacity: 0.7;
+          opacity: 0.9;
           text-transform: uppercase;
           letter-spacing: 1px;
           margin-bottom: 5px;
+          text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 0, 0, 0.5);
       }
       
       .bank-card-expiry-date {
           font-size: 18px;
           font-weight: 600;
+          text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
       }
       
       .bank-card-type {
@@ -941,23 +935,23 @@ body {
           font-weight: 500;
       }
       
-      /* Card Variations */
+      /* Card Variations - All transparent now */
       .bank-card.premium {
-          background: linear-gradient(135deg, #4a90e2 0%, #357abd 50%, #1a1a2e 100%);
+          background: transparent;
       }
       
       .bank-card.gold {
-          background: linear-gradient(135deg, #d4af37 0%, #b8941f 50%, #8b6914 100%);
+          background: transparent;
       }
       
       .bank-card.platinum {
-          background: linear-gradient(135deg, #e5e5e5 0%, #c0c0c0 50%, #808080 100%);
-          color: #1a1a2e;
+          background: transparent;
+          color: #ffffff;
       }
       
       .bank-card.platinum .bank-card-holder-label,
       .bank-card.platinum .bank-card-expiry-label {
-          color: #1a1a2e;
+          color: #ffffff;
       }
       
       /* Carousel Controls */
