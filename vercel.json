@@ -1,5 +1,15 @@
 {
   "version": 2,
   "buildCommand": null,
-  "outputDirectory": "drebank"
+  "outputDirectory": "drebank",
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/$1"
+    }
+  ]
 }
