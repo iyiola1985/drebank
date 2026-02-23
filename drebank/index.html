@@ -738,6 +738,194 @@ body {
           letter-spacing: -0.02em;
       }
       
+      /* Bank Card Carousel Overlay */
+      .bank-card-carousel-overlay {
+          position: absolute;
+          left: 50px;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 6;
+          max-width: 420px;
+          width: 100%;
+      }
+      
+      .bank-card {
+          background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+          border-radius: 20px;
+          padding: 30px;
+          color: #ffffff;
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+          position: relative;
+          overflow: hidden;
+          min-height: 250px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+      }
+      
+      .bank-card::before {
+          content: '';
+          position: absolute;
+          top: -50%;
+          right: -50%;
+          width: 200%;
+          height: 200%;
+          background: radial-gradient(circle, rgba(74, 144, 226, 0.2) 0%, transparent 70%);
+          animation: pulse 4s ease-in-out infinite;
+      }
+      
+      @keyframes pulse {
+          0%, 100% { transform: scale(1); opacity: 0.5; }
+          50% { transform: scale(1.1); opacity: 0.8; }
+      }
+      
+      .bank-card-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 40px;
+      }
+      
+      .bank-card-logo {
+          font-size: 24px;
+          font-weight: 800;
+          letter-spacing: 1px;
+      }
+      
+      .bank-card-chip {
+          width: 50px;
+          height: 40px;
+          background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+          border-radius: 8px;
+          position: relative;
+      }
+      
+      .bank-card-chip::after {
+          content: '';
+          position: absolute;
+          top: 8px;
+          left: 8px;
+          right: 8px;
+          bottom: 8px;
+          border: 2px solid rgba(0, 0, 0, 0.2);
+          border-radius: 4px;
+      }
+      
+      .bank-card-number {
+          font-size: 24px;
+          letter-spacing: 4px;
+          font-weight: 600;
+          margin-bottom: 30px;
+          font-family: 'Courier New', monospace;
+      }
+      
+      .bank-card-details {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+      }
+      
+      .bank-card-holder {
+          flex: 1;
+      }
+      
+      .bank-card-holder-label {
+          font-size: 11px;
+          opacity: 0.7;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          margin-bottom: 5px;
+      }
+      
+      .bank-card-holder-name {
+          font-size: 18px;
+          font-weight: 600;
+          text-transform: uppercase;
+      }
+      
+      .bank-card-expiry {
+          text-align: right;
+      }
+      
+      .bank-card-expiry-label {
+          font-size: 11px;
+          opacity: 0.7;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          margin-bottom: 5px;
+      }
+      
+      .bank-card-expiry-date {
+          font-size: 18px;
+          font-weight: 600;
+      }
+      
+      /* Card Variations */
+      .bank-card.premium {
+          background: linear-gradient(135deg, #4a90e2 0%, #357abd 50%, #1a1a2e 100%);
+      }
+      
+      .bank-card.gold {
+          background: linear-gradient(135deg, #d4af37 0%, #b8941f 50%, #8b6914 100%);
+      }
+      
+      .bank-card.platinum {
+          background: linear-gradient(135deg, #e5e5e5 0%, #c0c0c0 50%, #808080 100%);
+          color: #1a1a2e;
+      }
+      
+      .bank-card.platinum .bank-card-holder-label,
+      .bank-card.platinum .bank-card-expiry-label {
+          color: #1a1a2e;
+      }
+      
+      /* Carousel Controls */
+      .bank-card-carousel-wrapper {
+          position: relative;
+      }
+      
+      .bank-card-carousel .bx-wrapper {
+          margin: 0;
+          box-shadow: none;
+          border: none;
+      }
+      
+      .bank-card-carousel .bx-pager {
+          display: none;
+      }
+      
+      .bank-card-carousel .bx-controls-direction {
+          display: none;
+      }
+      
+      @media (max-width: 992px) {
+          .bank-card-carousel-overlay {
+              left: 30px;
+              max-width: 350px;
+          }
+          
+          .bank-card {
+              padding: 25px;
+              min-height: 220px;
+          }
+          
+          .bank-card-number {
+              font-size: 20px;
+              letter-spacing: 3px;
+          }
+      }
+      
+      @media (max-width: 768px) {
+          .bank-card-carousel-overlay {
+              position: relative !important;
+              left: auto !important;
+              top: auto !important;
+              transform: none !important;
+              margin: 30px auto 20px !important;
+              max-width: 90% !important;
+          }
+      }
+      
       @media (max-width: 1200px) {
           .welcome-text-overlay h1 {
               font-size: 2.8em;
@@ -1078,9 +1266,30 @@ body {
       }
       
       .business-cta-1x {
-          background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+          background-image: url("images/b1.webp");
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
           padding: 60px 0;
           text-align: center;
+          position: relative;
+      }
+      
+      .business-cta-1x::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(26, 26, 46, 0.7);
+          z-index: 1;
+      }
+      
+      .business-cta-1x .container {
+          position: relative;
+          z-index: 2;
       }
       
       .cta-content h2 {
@@ -1855,6 +2064,88 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 					<div class="welcome-text-overlay">
 						<h1>Welcome to Dre Eyes Only Finance</h1>
 					</div>
+					<div class="bank-card-carousel-overlay">
+						<div class="bank-card-carousel-wrapper">
+							<ul class="bank-card-carousel">
+								<li>
+									<div class="bank-card premium">
+										<div class="bank-card-header">
+											<div class="bank-card-logo">DRE EYES ONLY</div>
+											<div class="bank-card-chip"></div>
+										</div>
+										<div class="bank-card-number">4532 •••• •••• 7890</div>
+										<div class="bank-card-details">
+											<div class="bank-card-holder">
+												<div class="bank-card-holder-label">Card Holder</div>
+												<div class="bank-card-holder-name">JOHN DOE</div>
+											</div>
+											<div class="bank-card-expiry">
+												<div class="bank-card-expiry-label">Expires</div>
+												<div class="bank-card-expiry-date">12/28</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="bank-card gold">
+										<div class="bank-card-header">
+											<div class="bank-card-logo">DRE EYES ONLY</div>
+											<div class="bank-card-chip"></div>
+										</div>
+										<div class="bank-card-number">5234 •••• •••• 5678</div>
+										<div class="bank-card-details">
+											<div class="bank-card-holder">
+												<div class="bank-card-holder-label">Card Holder</div>
+												<div class="bank-card-holder-name">JANE SMITH</div>
+											</div>
+											<div class="bank-card-expiry">
+												<div class="bank-card-expiry-label">Expires</div>
+												<div class="bank-card-expiry-date">09/27</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="bank-card platinum">
+										<div class="bank-card-header">
+											<div class="bank-card-logo">DRE EYES ONLY</div>
+											<div class="bank-card-chip"></div>
+										</div>
+										<div class="bank-card-number">6011 •••• •••• 3456</div>
+										<div class="bank-card-details">
+											<div class="bank-card-holder">
+												<div class="bank-card-holder-label">Card Holder</div>
+												<div class="bank-card-holder-name">ROBERT JONES</div>
+											</div>
+											<div class="bank-card-expiry">
+												<div class="bank-card-expiry-label">Expires</div>
+												<div class="bank-card-expiry-date">06/29</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="bank-card premium">
+										<div class="bank-card-header">
+											<div class="bank-card-logo">DRE EYES ONLY</div>
+											<div class="bank-card-chip"></div>
+										</div>
+										<div class="bank-card-number">4111 •••• •••• 9012</div>
+										<div class="bank-card-details">
+											<div class="bank-card-holder">
+												<div class="bank-card-holder-label">Card Holder</div>
+												<div class="bank-card-holder-name">SARAH WILSON</div>
+											</div>
+											<div class="bank-card-expiry">
+												<div class="bank-card-expiry-label">Expires</div>
+												<div class="bank-card-expiry-date">03/30</div>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
 					<div class="loginbox">
 						<div class="innerlogin" id="login-form">
 							<!-- jQuery loaded in head -->
@@ -2055,10 +2346,10 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 				<div class="col-md-4">
 					<div class="single-bolg hover01">
 						<figure style="position: relative; overflow: hidden;">
-							<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgNDAwIDI1MCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJ0YXhHcmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojNGE5MGUyO3N0b3Atb3BhY2l0eToxIiAvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzM1N2FiZDtzdG9wLW9wYWNpdHk6MSIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgZmlsbD0idXJsKCN0YXhHcmFkKSIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIwMCwgMTI1KSI+PHJlY3QgeD0iLTYwIiB5PSItNDAiIHdpZHRoPSIxMjAiIGhlaWdodD0iODAiIHJ4PSI4IiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjk1Ii8+PHJlY3QgeD0iLTUwIiB5PSItMzAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMjUiIHJ4PSI0IiBmaWxsPSIjMWExYTJlIi8+PHRleHQgeD0iMCIgeT0iLTEyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNGE5MGUyIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgZm9udC1mYW1pbHk9IkFyaWFsIj4kMjAsMDAwPC90ZXh0PjxjaXJjbGUgY3g9Ii0zMCIgY3k9IjUiIHI9IjgiIGZpbGw9IiM0YTkwZTIiLz48Y2lyY2xlIGN4PSIwIiBjeT0iNSIgcj0iOCIgZmlsbD0iIzRhOTBlMiIvPjxjaXJjbGUgY3g9IjMwIiBjeT0iNSIgcj0iOCIgZmlsbD0iIzRhOTBlMiIvPjxjaXJjbGUgY3g9Ii0zMCIgY3k9IjI1IiByPSI4IiBmaWxsPSIjNGE5MGUyIi8+PGNpcmNsZSBjeD0iMCIgY3k9IjI1IiByPSI4IiBmaWxsPSIjNGE5MGUyIi8+PGNpcmNsZSBjeD0iMzAiIGN5PSIyNSIgcj0iOCIgZmlsbD0iIzRhOTBlMiIvPjwvZz48dGV4dCB4PSI1MCIgeT0iNTAiIGZpbGw9IiNmZmZmZmYiIGZvbnQtc2l6ZT0iMzIiIGZvbnQtd2VpZ2h0PSJib2xkIiBvcGFjaXR5PSIwLjMiPiQ8L3RleHQ+PHRleHQgeD0iMzIwIiB5PSIyMDAiIGZpbGw9IiNmZmZmZmYiIGZvbnQtc2l6ZT0iMzIiIGZvbnQtd2VpZ2h0PSJib2xkIiBvcGFjaXR5PSIwLjMiPiQ8L3RleHQ+PHBvbHlsaW5lIHBvaW50cz0iODAsMTgwIDEyMCwxNjAgMTYwLDE0MCAyMDAsMTIwIDI0MCwxMDAgMjgwLDkwIDMyMCw4NSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjMiIG9wYWNpdHk9IjAuNCIvPjwvc3ZnPg==" alt="Tax Year ISA" style="width: 100%; height: auto; display: block;">
-							<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(74, 144, 226, 0.85) 0%, rgba(53, 122, 189, 0.85) 100%); display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px; color: #ffffff;">
-								<h3 style="margin: 0; font-size: 2em; font-weight: 800; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Up to $20,000</h3>
-								<p style="margin: 10px 0 0; font-size: 1.1em; text-align: center; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">This Tax Year</p>
+							<img src="images/bank-counter.jpg" alt="Bank Counter" style="width: 100%; height: 250px; object-fit: cover; display: block;">
+							<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(26, 26, 46, 0.6); display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px; color: #ffffff;">
+								<h3 style="margin: 0; font-size: 2em; font-weight: 800; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Up to $20,000</h3>
+								<p style="margin: 10px 0 0; font-size: 1.1em; text-align: center; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">This Tax Year</p>
 							</div>
 						</figure>
 						<div class="blog-content">
@@ -2076,10 +2367,10 @@ function myFunction() {
 				<div class="col-md-4">
 					<div class="single-bolg hover01">
 						<figure style="position: relative; overflow: hidden;">
-							<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgNDAwIDI1MCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJhcHB0R3JhZCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzI4YTc0NTtzdG9wLW9wYWNpdHk6MSIgLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMyMGM5OTc7c3RvcC1vcGFjaXR5OjEiIC8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIyNTAiIGZpbGw9InVybCgjYXBwdEdyYWQpIi8+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjAwLCAxMjUpIj48cmVjdCB4PSItNTAiIHk9Ii01MCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSI5MCIgcng9IjYiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuOTUiLz48cmVjdCB4PSItNTAiIHk9Ii01MCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIyNSIgcng9IjYiIGZpbGw9IiM0YTkwZTIiLz48dGV4dCB4PSIwIiB5PSItMzIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmZmZmYiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LWZhbWlseT0iQXJpYWwiPkFQUE9JTlRNRU5UPC90ZXh0PjxsaW5lIHgxPSItMzAiIHkxPSItMjUiIHgyPSIzMCIgeTI9Ii0yNSIgc3Ryb2tlPSIjMWExYTJlIiBzdHJva2Utd2lkdGg9IjEiIG9wYWNpdHk9IjAuMiIvPjxsaW5lIHgxPSItMzAiIHkxPSItNSIgeDI9IjMwIiB5Mj0iLTUiIHN0cm9rZT0iIzFhMWEyZSIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjIiLz48bGluZSB4MT0iLTMwIiB5MT0iMTUiIHgyPSIzMCIgeTI9IjE1IiBzdHJva2U9IiMxYTFhMmUiIHN0cm9rZS13aWR0aD0iMSIgb3BhY2l0eT0iMC4yIi8+PGxpbmUgeDE9IjAiIHkxPSItMjUiIHgyPSIwIiB5Mj0iMzUiIHN0cm9rZT0iIzFhMWEyZSIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjIiLz48dGV4dCB4PSIwIiB5PSIxMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzFhMWEyZSIgZm9udC1zaXplPSIyNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZvbnQtZmFtaWx5PSJBcmlhbCI+MTU8L3RleHQ+PGNpcmNsZSBjeD0iMCIgY3k9IjUwIiByPSIxNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNGE5MGUyIiBzdHJva2Utd2lkdGg9IjIiLz48bGluZSB4MT0iMCIgeTE9IjUwIiB4Mj0iMCIgeTI9IjQyIiBzdHJva2U9IiM0YTkwZTIiIHN0cm9rZS13aWR0aD0iMiIvPjxsaW5lIHgxPSIwIiB5MT0iNTAiIHgyPSI2IiB5Mj0iNTAiIHN0cm9rZT0iIzRhOTBlMiIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9nPjxjaXJjbGUgY3g9IjgwIiBjeT0iNjAiIHI9IjIwIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjIiLz48Y2lyY2xlIGN4PSIzMjAiIGN5PSIxOTAiIHI9IjI1IiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjIiLz48L3N2Zz4=" alt="Book Appointment" style="width: 100%; height: auto; display: block;">
-							<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(40, 167, 69, 0.85) 0%, rgba(32, 201, 151, 0.85) 100%); display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px; color: #ffffff;">
-								<h3 style="margin: 0; font-size: 1.8em; font-weight: 800; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Book an</h3>
-								<p style="margin: 10px 0 0; font-size: 1.8em; font-weight: 800; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Appointment</p>
+							<img src="images/office-meeting.jpg" alt="Office Meeting" style="width: 100%; height: 250px; object-fit: cover; display: block;">
+							<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(26, 26, 46, 0.6); display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px; color: #ffffff;">
+								<h3 style="margin: 0; font-size: 1.8em; font-weight: 800; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Book an</h3>
+								<p style="margin: 10px 0 0; font-size: 1.8em; font-weight: 800; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Appointment</p>
 							</div>
 						</figure>
 						<div class="blog-content">
@@ -2092,10 +2383,10 @@ function myFunction() {
 				<div class="col-md-4">
 					<div class="single-bolg hover01">
 						<figure style="position: relative; overflow: hidden;">
-							<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgNDAwIDI1MCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJmZW5jZUdyYWQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMxYTFhMmU7c3RvcC1vcGFjaXR5OjEiIC8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMTYyMTNlO3N0b3Atb3BhY2l0eToxIiAvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSJ1cmwoI2ZlbmNlR3JhZCkiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMDAsIDEyNSkiPjxwYXRoIGQ9Ik0gMCwtNjAgTCAtNDAsLTMwIEwgLTQwLDIwIEwgMCw1MCBMIDQwLDIwIEwgNDAsLTMwIFoiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuOTUiLz48cmVjdCB4PSItMTUiIHk9Ii0xMCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjI1IiByeD0iMyIgZmlsbD0iIzRhOTBlMiIvPjxwYXRoIGQ9Ik0gLTIwLC0yMCBRIC0yMCwtMzAgMCwtMzAgUSAyMCwtMzAgMjAsLTIwIEwgMjAsLTEwIEwgLTIwLC0xMCBaIiBmaWxsPSIjNGE5MGUyIi8+PGNpcmNsZSBjeD0iMCIgY3k9IjAiIHI9IjQiIGZpbGw9IiNmZmZmZmYiLz48L2c+PGNpcmNsZSBjeD0iMjAwIiBjeT0iMTI1IiByPSI4MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNGE5MGUyIiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjAuMyIvPjxjaXJjbGUgY3g9IjIwMCIgY3k9IjEyNSIgcj0iMTAwIiBmaWxsPSJub25lIiBzdHJva2U9IiM0YTkwZTIiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iMC4yIi8+PGxpbmUgeDE9IjEwMCIgeTE9IjEyNSIgeDI9IjMwMCIgeTI9IjEyNSIgc3Ryb2tlPSIjNGE5MGUyIiBzdHJva2Utd2lkdGg9IjEiIG9wYWNpdHk9IjAuMiIvPjxsaW5lIHgxPSIyMDAiIHkxPSI1MCIgeDI9IjIwMCIgeTI9IjIwMCIgc3Ryb2tlPSIjNGE5MGUyIiBzdHJva2Utd2lkdGg9IjEiIG9wYWNpdHk9IjAuMiIvPjwvc3ZnPg==" alt="Ring Fencing" style="width: 100%; height: auto; display: block;">
-							<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(26, 26, 46, 0.85) 0%, rgba(22, 33, 62, 0.85) 100%); display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px; color: #ffffff;">
-								<h3 style="margin: 0; font-size: 1.8em; font-weight: 800; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Ring</h3>
-								<p style="margin: 10px 0 0; font-size: 1.8em; font-weight: 800; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Fencing</p>
+							<img src="images/office-meeting.jpg" alt="Office Meeting" style="width: 100%; height: 250px; object-fit: cover; display: block;">
+							<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(26, 26, 46, 0.6); display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px; color: #ffffff;">
+								<h3 style="margin: 0; font-size: 1.8em; font-weight: 800; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Ring</h3>
+								<p style="margin: 10px 0 0; font-size: 1.8em; font-weight: 800; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Fencing</p>
 							</div>
 						</figure>
 						<div class="blog-content">
@@ -2394,6 +2685,32 @@ function myFunction() {
 				}
 			}
 		});
+		
+		// Initialize Bank Card Carousel
+		if (typeof $.fn.bxSlider !== 'undefined') {
+			try {
+				$('.bank-card-carousel').bxSlider({
+					mode: 'horizontal',
+					speed: 1000,
+					auto: true,
+					autoHover: true,
+					pager: false,
+					controls: false,
+					infiniteLoop: true,
+					slideWidth: 420,
+					minSlides: 1,
+					maxSlides: 1,
+					moveSlides: 1,
+					slideMargin: 0,
+					touchEnabled: true,
+					oneToOneTouch: true,
+					preventDefaultSwipeX: false,
+					preventDefaultSwipeY: true
+				});
+			} catch(e) {
+				console.error('Bank card carousel initialization error:', e);
+			}
+		}
 	}); 
 </script>
 
