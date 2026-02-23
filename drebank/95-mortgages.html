@@ -145,6 +145,32 @@
           font-size:35px;
           margin-top:2px;
       }
+      /* Professional Text Logo */
+      .navbar-brand .logo-text-brand {
+          display: inline-block;
+          font-family: 'Poppins', 'Playfair Display', serif;
+          font-size: 26px;
+          font-weight: 800;
+          color: #1a1a2e;
+          text-decoration: none;
+          letter-spacing: 0.5px;
+          line-height: 1.2;
+      }
+      
+      .navbar-brand .logo-text-brand:hover {
+          color: #4a90e2;
+          text-decoration: none;
+      }
+      
+      /* Hide any old logo images */
+      .navbar-brand img {
+          display: none !important;
+      }
+      
+      .navbar-brand .logo-text {
+          display: none !important;
+      }
+
   </style>
    <!-- Preloader -->
     <div id="fakeloader"></div>
@@ -181,7 +207,9 @@
 				<div class="col-md-12">		
 					<div class="business-main-menu">		
 						<nav class="navbar navbar-expand-lg navbar-light bg-light btco-hover-menu">
-						<a class="navbar-brand" href="index-2.html"><img style="max-width:125px;" src="images/F0D7474F-1F49-4101-8929-61D532625137-removebg-preview.png" class="d-inline-block align-top" alt="Dre Eyes Only Finance"><span class="logo-text" style="display: none;">Dre Eyes Only Finance</span></a>
+						<a class="navbar-brand" href="index.html">
+								<span class="logo-text-brand">Dre Eyes Only Finance</span>
+							</a>
 					  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					  </button>

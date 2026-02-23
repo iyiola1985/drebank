@@ -48,6 +48,32 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     
     <style>
+      /* Professional Text Logo */
+      .navbar-brand .logo-text-brand {
+          display: inline-block;
+          font-family: 'Poppins', 'Playfair Display', serif;
+          font-size: 26px;
+          font-weight: 800;
+          color: #1a1a2e;
+          text-decoration: none;
+          letter-spacing: 0.5px;
+          line-height: 1.2;
+      }
+      
+      .navbar-brand .logo-text-brand:hover {
+          color: #4a90e2;
+          text-decoration: none;
+      }
+      
+      /* Hide any old logo images */
+      .navbar-brand img {
+          display: none !important;
+      }
+      
+      .navbar-brand .logo-text {
+          display: none !important;
+      }
+
         body {
             font-family: 'Poppins', 'Inter', 'Roboto', sans-serif;
             background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
