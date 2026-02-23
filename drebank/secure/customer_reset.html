@@ -1,209 +1,124 @@
 <!doctype html>
 <html lang="en">
-<meta http-equiv="content-type" content="text/html;charset=UTF-8">
 <head>
     <title>Reset Password || Dre Eyes Only Finance Plc</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
+    <link href="../color/default.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
     <style>
-      /* Professional Text Logo */
-      .navbar-brand .logo-text-brand {
-          display: inline-block;
-          font-family: 'Poppins', 'Playfair Display', serif;
-          font-size: 26px;
-          font-weight: 800;
-          color: #1a1a2e;
-          text-decoration: none;
-          letter-spacing: 0.5px;
-          line-height: 1.2;
-      }
-      
-      .navbar-brand .logo-text-brand:hover {
-          color: #4a90e2;
-          text-decoration: none;
-      }
-      
-      /* Hide any old logo images */
-      .navbar-brand img {
-          display: none !important;
-      }
-      
-      .navbar-brand .logo-text {
-          display: none !important;
-      }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
-            min-height: 100vh;
-            padding: 40px 0;
-        }
-        
         .reset-container {
-            max-width: 500px;
-            margin: 0 auto;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 20px;
+        }
+        .reset-box {
+            background: #fff;
             padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            max-width: 500px;
+            width: 100%;
         }
-        
-        .reset-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .reset-header h2 {
-            font-size: 2em;
-            font-weight: 700;
+        .reset-box h2 {
             color: #1a1a2e;
-            margin-bottom: 10px;
+            margin-bottom: 30px;
+            text-align: center;
         }
-        
-        .reset-header p {
-            color: #666;
-            font-size: 14px;
-        }
-        
         .form-group {
             margin-bottom: 20px;
         }
-        
-        .form-group label {
-            font-weight: 600;
-            color: #1a1a2e;
-            margin-bottom: 8px;
-            display: block;
-        }
-        
         .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 6px;
-            font-size: 14px;
-            transition: all 0.3s ease;
+            border-radius: 5px;
+            padding: 12px;
         }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: #4a90e2;
-            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
-        }
-        
-        .reset-btn {
+        .btn-reset {
             width: 100%;
-            padding: 14px;
+            padding: 12px;
             background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
-            color: #ffffff;
+            color: #fff;
             border: none;
-            border-radius: 6px;
+            border-radius: 5px;
             font-weight: 600;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s ease;
         }
-        
-        .reset-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+        .btn-reset:hover {
+            background: linear-gradient(135deg, #357abd 0%, #2a5a8a 100%);
         }
-        
         .alert {
-            padding: 12px 15px;
-            border-radius: 6px;
-            margin-bottom: 20px;
-            font-size: 14px;
+            margin-top: 15px;
         }
-        
-        .alert-success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        
-        .alert-info {
-            background: #d1ecf1;
-            color: #0c5460;
-            border: 1px solid #bee5eb;
-        }
-        
         .login-link {
             text-align: center;
             margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #e0e0e0;
-        }
-        
-        .login-link a {
-            color: #4a90e2;
-            text-decoration: none;
-            font-weight: 600;
         }
     </style>
 </head>
-
 <body>
     <div class="reset-container">
-        <div class="reset-header">
-            <h2><i class="fa fa-key"></i> Reset Password</h2>
-            <p>Enter your email address and we'll send you instructions to reset your password</p>
-        </div>
-        
-        <div id="resetResult"></div>
-        
-        <form id="resetForm" onsubmit="return false;">
-            <div class="form-group">
-                <label for="email">Email Address *</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your registered email" required>
+        <div class="reset-box">
+            <h2>Reset Your Password</h2>
+            <div id="resetResult"></div>
+            <form id="resetForm">
+                <div class="form-group">
+                    <label>Account Number or Email</label>
+                    <input type="text" class="form-control" id="accountIdentifier" required>
+                </div>
+                <button type="submit" class="btn btn-reset">Send Reset Link</button>
+            </form>
+            <div class="login-link">
+                <p>Remember your password? <a href="customer_login.html">Sign in here</a></p>
             </div>
-            
-            <button type="submit" class="reset-btn" id="resetBtn">
-                <i class="fa fa-paper-plane"></i> Send Reset Instructions
-            </button>
-        </form>
-        
-        <div class="login-link">
-            <p><a href="customer_login.html"><i class="fa fa-arrow-left"></i> Back to Sign In</a></p>
         </div>
     </div>
-    
+
     <script>
         $(document).ready(function() {
+            var API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+                ? 'http://localhost:3000/api' 
+                : '/api';
+
             $('#resetForm').on('submit', function(e) {
                 e.preventDefault();
                 
-                const email = $('#email').val();
-                const resetBtn = $('#resetBtn');
-                const resetResult = $('#resetResult');
+                var accountIdentifier = $('#accountIdentifier').val();
                 
-                if (!email) {
-                    resetResult.html('<div class="alert alert-info"><i class="fa fa-info-circle"></i> Please enter your email address</div>');
+                if (!accountIdentifier) {
+                    $('#resetResult').html('<div class="alert alert-danger">Please enter your account number or email.</div>');
                     return;
                 }
                 
-                // Show loading state
-                const originalText = resetBtn.html();
-                resetBtn.html('<i class="fa fa-spinner fa-spin"></i> Sending...').prop('disabled', true);
+                var $btn = $('.btn-reset');
+                var originalText = $btn.html();
+                $btn.prop('disabled', true).html('<i class="fa fa-spinner fa-spin"></i> Sending...');
                 
-                // Simulate API call (in production, this would call your backend)
-                setTimeout(() => {
-                    resetResult.html(`
-                        <div class="alert alert-success">
-                            <i class="fa fa-check-circle"></i> 
-                            <strong>Reset instructions sent!</strong><br>
-                            If an account exists with ${email}, you will receive password reset instructions shortly.
-                            <br><br>
-                            <small>Note: This is a demo. In production, this would send an actual email.</small>
-                        </div>
-                    `);
-                    resetBtn.html(originalText).prop('disabled', false);
-                }, 1500);
+                fetch(API_BASE_URL + '/auth/reset-password', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ identifier: accountIdentifier })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        $('#resetResult').html('<div class="alert alert-success">Password reset link has been sent to your email. Please check your inbox.</div>');
+                    } else {
+                        $('#resetResult').html('<div class="alert alert-danger">' + (data.message || 'Unable to process reset request. Please try again.') + '</div>');
+                        $btn.prop('disabled', false).html(originalText);
+                    }
+                })
+                .catch(error => {
+                    console.error('Reset error:', error);
+                    $('#resetResult').html('<div class="alert alert-warning">Unable to connect to server. Please try again later.</div>');
+                    $btn.prop('disabled', false).html(originalText);
+                });
             });
         });
     </script>

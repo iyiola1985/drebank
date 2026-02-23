@@ -1,380 +1,153 @@
 <!doctype html>
 <html lang="en">
-<meta http-equiv="content-type" content="text/html;charset=UTF-8">
 <head>
     <title>Register || Dre Eyes Only Finance Plc</title>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <!-- Favicon icon -->    
-    <link rel="stylesheet" href="../etc/clientlib-default.min.001bf72e86ac4a5150822ce748c8d0ae.css" type="text/css">
-    <link rel="stylesheet" href="../site.min.css" type="text/css">
-    <link rel="shortcut icon" type="image/png" href="../img/blue_icon_dropdown.html">    
-    <!-- Google fonts -->    
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,400,400i,500,500i,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Bootstrap -->    
-    <link href="../css/bootstrap.min.css" rel="stylesheet">    
-    <!-- Fontawsome -->    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="../css/font-awesome.min.css" rel="stylesheet">    
-    <!-- Animate CSS-->    
-    <link href="../css/animate.css" rel="stylesheet">    
-    <!-- menu CSS-->    
-    <link href="../css/bootstrap-4-navbar.css" rel="stylesheet">        
-    <!-- Portfolio Gallery -->    
-    <link href="../css/filterizer.css" rel="stylesheet">    
-    <!-- Lightbox Gallery -->    
-    <link href="../inc/lightbox/css/jquery.fancybox.css" rel="stylesheet">    
-    <!-- OWL Carousel -->    
-    <link rel="stylesheet" href="../css/owl.carousel.min.css">    
-    <link rel="stylesheet" href="../css/owl.theme.default.min.css">    
-    <!-- Preloader CSS-->    
-    <link href="../css/fakeLoader.css" rel="stylesheet">    
-    <!-- Main CSS -->  
-    <link rel="stylesheet" type="text/css" href="../css/sweetalert.css">  
-    <link href="../style.css" rel="stylesheet">    
-    <!-- Default CSS Color -->     
-    <link href="../color/default.css" rel="stylesheet">     
-    <!-- Color CSS -->     
-    <link rel="stylesheet" href="../color/color-switcher.css">    
-    <!-- Responsive CSS -->    
-    <link href="../css/responsive.css" rel="stylesheet">    
-    <link href="../css/customcss.css" rel="stylesheet">    
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/toastr.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
+    <link href="../color/default.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-      /* Professional Text Logo */
-      .navbar-brand .logo-text-brand {
-          display: inline-block;
-          font-family: 'Poppins', 'Playfair Display', serif;
-          font-size: 26px;
-          font-weight: 800;
-          color: #1a1a2e;
-          text-decoration: none;
-          letter-spacing: 0.5px;
-          line-height: 1.2;
-      }
-      
-      .navbar-brand .logo-text-brand:hover {
-          color: #4a90e2;
-          text-decoration: none;
-      }
-      
-      /* Hide any old logo images */
-      .navbar-brand img {
-          display: none !important;
-      }
-      
-      .navbar-brand .logo-text {
-          display: none !important;
-      }
-
-        body {
-            font-family: 'Poppins', 'Inter', 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
-            min-height: 100vh;
-            padding: 40px 0;
-        }
-        
         .register-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 20px;
+        }
+        .register-box {
+            background: #fff;
             padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            max-width: 500px;
+            width: 100%;
         }
-        
-        .register-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .register-header h2 {
-            font-family: 'Poppins', serif;
-            font-size: 2em;
-            font-weight: 700;
+        .register-box h2 {
             color: #1a1a2e;
-            margin-bottom: 10px;
+            margin-bottom: 30px;
+            text-align: center;
         }
-        
-        .register-header p {
-            color: #666;
-            font-size: 14px;
-        }
-        
         .form-group {
             margin-bottom: 20px;
         }
-        
-        .form-group label {
-            font-weight: 600;
-            color: #1a1a2e;
-            margin-bottom: 8px;
-            display: block;
-            font-size: 14px;
-        }
-        
         .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 6px;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            background: #fff;
+            border-radius: 5px;
+            padding: 12px;
         }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: #4a90e2;
-            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
-        }
-        
-        .register-btn {
+        .btn-register {
             width: 100%;
-            padding: 14px;
+            padding: 12px;
             background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
-            color: #ffffff;
+            color: #fff;
             border: none;
-            border-radius: 6px;
+            border-radius: 5px;
             font-weight: 600;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
         }
-        
-        .register-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+        .btn-register:hover {
+            background: linear-gradient(135deg, #357abd 0%, #2a5a8a 100%);
         }
-        
-        .register-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
         .alert {
-            padding: 12px 15px;
-            border-radius: 6px;
-            margin-bottom: 20px;
-            font-size: 14px;
+            margin-top: 15px;
         }
-        
-        .alert-success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        
-        .alert-danger {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-        
         .login-link {
             text-align: center;
             margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #e0e0e0;
-        }
-        
-        .login-link a {
-            color: #4a90e2;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .login-link a:hover {
-            text-decoration: underline;
-        }
-        
-        .password-requirements {
-            font-size: 12px;
-            color: #666;
-            margin-top: 5px;
-        }
-        
-        @media (max-width: 768px) {
-            .register-container {
-                margin: 20px;
-                padding: 30px 20px;
-            }
-            
-            .register-header h2 {
-                font-size: 1.5em;
-            }
         }
     </style>
 </head>
-
 <body>
     <div class="register-container">
-        <div class="register-header">
-            <h2><i class="fa fa-user-plus"></i> Create Your Account</h2>
-            <p>Join Dre Eyes Only Finance and start managing your finances today</p>
-        </div>
-        
-        <div id="registerResult"></div>
-        
-        <form id="registerForm" onsubmit="return false;">
-            <div class="form-group">
-                <label for="fullName">Full Name *</label>
-                <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Enter your full name" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="email">Email Address *</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email address" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="password">Password *</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Create a password" required minlength="6">
-                <div class="password-requirements">
-                    <i class="fa fa-info-circle"></i> Password must be at least 6 characters long
+        <div class="register-box">
+            <h2>Create Your Account</h2>
+            <div id="registerResult"></div>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" id="fullName" required>
                 </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Account Number</label>
+                    <input type="text" class="form-control" id="accountNumber" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" id="password" required minlength="6">
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" class="form-control" id="confirmPassword" required>
+                </div>
+                <button type="submit" class="btn btn-register">Register</button>
+            </form>
+            <div class="login-link">
+                <p>Already have an account? <a href="customer_login.html">Sign in here</a></p>
             </div>
-            
-            <div class="form-group">
-                <label for="confirmPassword">Confirm Password *</label>
-                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
-            </div>
-            
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" id="terms" required> 
-                    I agree to the <a href="../contactandsupport.html" target="_blank">Terms and Conditions</a> and <a href="../contactandsupport.html" target="_blank">Privacy Policy</a>
-                </label>
-            </div>
-            
-            <button type="submit" class="register-btn" id="registerBtn">
-                <i class="fa fa-user-plus"></i> Create Account
-            </button>
-        </form>
-        
-        <div class="login-link">
-            <p>Already have an account? <a href="customer_login.html"><i class="fa fa-sign-in"></i> Sign In</a></p>
         </div>
     </div>
-    
+
     <script>
-        // API Base URL - Automatically detects environment
-        const API_BASE_URL = (function() {
-            const hostname = window.location.hostname;
-            
-            // Local development
-            if (hostname === 'localhost' || hostname === '127.0.0.1') {
-                return 'http://localhost:3000';
-            }
-            
-            // Production - use same origin (relative URLs)
-            return '';
-        })();
-        
         $(document).ready(function() {
-            $('#registerForm').on('submit', async function(e) {
+            var API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+                ? 'http://localhost:3000/api' 
+                : '/api';
+
+            $('#registerForm').on('submit', function(e) {
                 e.preventDefault();
                 
-                const fullName = $('#fullName').val();
-                const email = $('#email').val();
-                const password = $('#password').val();
-                const confirmPassword = $('#confirmPassword').val();
-                const terms = $('#terms').is(':checked');
-                const registerBtn = $('#registerBtn');
-                const registerResult = $('#registerResult');
-                
-                // Clear previous messages
-                registerResult.html('');
-                
-                // Validation
-                if (!fullName || !email || !password || !confirmPassword) {
-                    registerResult.html('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> Please fill in all required fields</div>');
-                    return;
-                }
+                var password = $('#password').val();
+                var confirmPassword = $('#confirmPassword').val();
                 
                 if (password !== confirmPassword) {
-                    registerResult.html('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> Passwords do not match</div>');
+                    $('#registerResult').html('<div class="alert alert-danger">Passwords do not match!</div>');
                     return;
                 }
                 
-                if (password.length < 6) {
-                    registerResult.html('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> Password must be at least 6 characters long</div>');
-                    return;
-                }
+                var formData = {
+                    fullName: $('#fullName').val(),
+                    email: $('#email').val(),
+                    accountNumber: $('#accountNumber').val(),
+                    password: password
+                };
                 
-                if (!terms) {
-                    registerResult.html('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> Please accept the Terms and Conditions</div>');
-                    return;
-                }
+                var $btn = $('.btn-register');
+                var originalText = $btn.html();
+                $btn.prop('disabled', true).html('<i class="fa fa-spinner fa-spin"></i> Registering...');
                 
-                // Show loading state
-                const originalText = registerBtn.html();
-                registerBtn.html('<i class="fa fa-spinner fa-spin"></i> Creating Account...').prop('disabled', true);
-                
-                try {
-                    const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            name: fullName,
-                            email: email,
-                            password: password
-                        })
-                    });
-                    
-                    const data = await response.json();
-                    
-                    if (response.ok) {
-                        registerResult.html(`
-                            <div class="alert alert-success">
-                                <i class="fa fa-check-circle"></i> 
-                                <strong>Registration Submitted!</strong><br>
-                                Your account has been created and is pending approval.<br>
-                                You will receive an email once your account is approved.<br>
-                                <small>You can try logging in, but access will be granted after approval.</small>
-                            </div>
-                        `);
-                        
-                        // Redirect to login after 5 seconds
-                        setTimeout(() => {
+                fetch(API_BASE_URL + '/auth/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        $('#registerResult').html('<div class="alert alert-success">Registration successful! Please wait for admin approval.</div>');
+                        setTimeout(function() {
                             window.location.href = 'customer_login.html';
-                        }, 5000);
+                        }, 2000);
                     } else {
-                        registerResult.html(`<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> ${data.error || 'Registration failed. Please try again.'}</div>`);
-                        registerBtn.html(originalText).prop('disabled', false);
+                        $('#registerResult').html('<div class="alert alert-danger">' + (data.message || 'Registration failed. Please try again.') + '</div>');
+                        $btn.prop('disabled', false).html(originalText);
                     }
-                } catch (error) {
+                })
+                .catch(error => {
                     console.error('Registration error:', error);
-                    registerResult.html('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> Connection error. Please make sure the server is running.</div>');
-                    registerBtn.html(originalText).prop('disabled', false);
-                }
-            });
-            
-            // Real-time password match validation
-            $('#confirmPassword').on('keyup', function() {
-                const password = $('#password').val();
-                const confirmPassword = $(this).val();
-                
-                if (confirmPassword && password !== confirmPassword) {
-                    $(this).css('border-color', '#dc3545');
-                } else {
-                    $(this).css('border-color', '#e0e0e0');
-                }
+                    $('#registerResult').html('<div class="alert alert-warning">Unable to connect to server. Please try again later.</div>');
+                    $btn.prop('disabled', false).html(originalText);
+                });
             });
         });
     </script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

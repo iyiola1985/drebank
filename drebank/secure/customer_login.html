@@ -558,8 +558,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 					<div class="business-main-menu">		
 						<nav class="navbar navbar-expand-lg navbar-light bg-light btco-hover-menu">
 						<a class="navbar-brand" href="../index-2.html">
-							<img style="max-width:220px;" src="../images/F0D7474F-1F49-4101-8929-61D532625137-removebg-preview.png" class="d-inline-block align-top" alt="">
-							<!--<h2><span style="color:#EC4550;">I</span><span style="color:#0E3768;">BG</span></h2>-->
+							<h2><span style="color:#EC4550;">Dre Eyes Only</span> <span style="color:#0E3768;">Finance</span></h2>
 						</a>
 					  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
@@ -1189,21 +1188,61 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 })
   
   $(document).ready(function () {
+    // Determine API base URL
+    var API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+      ? 'http://localhost:3000/api' 
+      : '/api';
+    
     $('.loginbtn').click(function (e) {
       e.preventDefault();
       var id = $('#id').val();
-      var pass = $('#pass').val(); 
+      var pass = $('#pass').val();
+      
+      if (!id || !pass) {
+            $('.logResult').html('<div class="alert alert-danger">Please enter both account number and password.</div>');
+        return;
+      }
        
-      $.ajax
-        ({
-          type: "POST",
-          url: "login",
-          data: { "id": id, "pass": pass},
-          success: function (data) {
-            $('.logResult').html(data);
-            $('#formPC')[0].reset();
+      // Show loading state
+      var $btn = $(this);
+      var originalText = $btn.html();
+      $btn.prop('disabled', true);
+      
+      // Try API endpoint first
+      fetch(API_BASE_URL + '/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ accountNumber: id, password: pass })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          $('.logResult').html('<div class="alert alert-success">Login successful! Redirecting...</div>');
+          // Store token if provided
+          if (data.token) {
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('user', JSON.stringify(data.user));
           }
-        });
+          // Redirect based on user role
+          setTimeout(function() {
+            if (data.user && data.user.role === 'admin') {
+              window.location.href = 'admin-dashboard.html';
+            } else {
+              window.location.href = 'client-dashboard.html';
+            }
+          }, 1500);
+        } else {
+          $('.logResult').html('<div class="alert alert-danger">' + (data.message || 'Invalid credentials. Please try again.') + '</div>');
+          $btn.prop('disabled', false).html(originalText);
+        }
+      })
+      .catch(error => {
+        console.error('Login error:', error);
+        $('.logResult').html('<div class="alert alert-warning">Unable to connect to server. Please check your connection or try again later.</div>');
+        $btn.prop('disabled', false).html(originalText);
+      });
     });
   });
   </script>

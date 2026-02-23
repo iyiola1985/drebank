@@ -744,9 +744,12 @@ body {
           left: 50px;
           top: 50%;
           transform: translateY(-50%);
-          z-index: 6;
+          z-index: 15;
           max-width: 420px;
           width: 100%;
+          visibility: visible;
+          opacity: 1;
+          display: block;
       }
       
       .bank-card {
@@ -882,6 +885,18 @@ body {
       /* Carousel Controls */
       .bank-card-carousel-wrapper {
           position: relative;
+      }
+      
+      .bank-card-carousel {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+      }
+      
+      .bank-card-carousel li {
+          list-style: none;
+          margin: 0;
+          padding: 0;
       }
       
       .bank-card-carousel .bx-wrapper {
@@ -2061,9 +2076,6 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 							</div>
 						</div>
 					</div>
-					<div class="welcome-text-overlay">
-						<h1>Welcome to Dre Eyes Only Finance</h1>
-					</div>
 					<div class="bank-card-carousel-overlay">
 						<div class="bank-card-carousel-wrapper">
 							<ul class="bank-card-carousel">
@@ -2211,21 +2223,61 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 })
   
   $(document).ready(function () {
+    // Determine API base URL
+    var API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+      ? 'http://localhost:3000/api' 
+      : '/api';
+    
     $('.loginbtn').click(function (e) {
       e.preventDefault();
       var id = $('#id').val();
-      var pass = $('#pass').val(); 
+      var pass = $('#pass').val();
+      
+      if (!id || !pass) {
+        $('.logResult').html('<div class="alert alert-danger">Please enter both account number and password.</div>');
+        return;
+      }
        
-      $.ajax
-        ({
-          type: "POST",
-          url: "login.php",
-          data: { "id": id, "pass": pass},
-          success: function (data) {
-            $('.logResult').html(data);
-            $('#formPC')[0].reset();
+      // Show loading state
+      var $btn = $(this);
+      var originalText = $btn.html();
+      $btn.prop('disabled', true);
+      
+      // Try API endpoint
+      fetch(API_BASE_URL + '/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ accountNumber: id, password: pass })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          $('.logResult').html('<div class="alert alert-success">Login successful! Redirecting...</div>');
+          // Store token if provided
+          if (data.token) {
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('user', JSON.stringify(data.user));
           }
-        });
+          // Redirect based on user role
+          setTimeout(function() {
+            if (data.user && data.user.role === 'admin') {
+              window.location.href = 'secure/admin-dashboard.html';
+            } else {
+              window.location.href = 'secure/client-dashboard.html';
+            }
+          }, 1500);
+        } else {
+          $('.logResult').html('<div class="alert alert-danger">' + (data.message || 'Invalid credentials. Please try again.') + '</div>');
+          $btn.prop('disabled', false).html(originalText);
+        }
+      })
+      .catch(error => {
+        console.error('Login error:', error);
+        $('.logResult').html('<div class="alert alert-warning">Unable to connect to server. Please check your connection or try again later.</div>');
+        $btn.prop('disabled', false).html(originalText);
+      });
     });
   });
   </script>
