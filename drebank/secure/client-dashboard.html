@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<head>
+    <title>Client Dashboard - Dre Eyes Only Finance</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f7fa;
+            color: #1a1a2e;
+        }
+        
+        .dashboard-header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .dashboard-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .user-info h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .user-info p {
+            margin: 5px 0 0;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        
+        .logout-btn {
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            color: #fff;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s ease;
+        }
+        
+        .logout-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .dashboard-content {
+            padding: 40px 0;
+        }
+        
+        .account-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .account-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        
+        .account-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .account-type {
+            font-size: 14px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .account-status {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .status-active {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-hold {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .account-number {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin: 10px 0;
+        }
+        
+        .account-balance {
+            font-size: 36px;
+            font-weight: 800;
+            color: #4a90e2;
+            margin: 15px 0;
+        }
+        
+        .send-money-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+        }
+        
+        .send-money-card h3 {
+            color: #1a1a2e;
+            margin-bottom: 25px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #4a90e2;
+        }
+        
+        .btn-send {
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            color: #fff;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s ease;
+        }
+        
+        .btn-send:hover {
+            transform: translateY(-2px);
+        }
+        
+        .btn-send:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .transactions-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .transactions-card h3 {
+            color: #1a1a2e;
+            margin-bottom: 25px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .transaction-item {
+            padding: 20px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .transaction-item:last-child {
+            border-bottom: none;
+        }
+        
+        .transaction-details h4 {
+            font-size: 16px;
+            color: #1a1a2e;
+            margin-bottom: 5px;
+        }
+        
+        .transaction-details p {
+            font-size: 13px;
+            color: #666;
+            margin: 0;
+        }
+        
+        .transaction-amount {
+            font-size: 18px;
+            font-weight: 700;
+        }
+        
+        .amount-sent {
+            color: #dc3545;
+        }
+        
+        .amount-received {
+            color: #28a745;
+        }
+        
+        .alert {
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard-header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .user-info {
+                margin-bottom: 15px;
+            }
+            
+            .account-balance {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-header">
+        <div class="container">
+            <div class="user-info">
+                <h2>Welcome, <span id="userName">Loading...</span></h2>
+                <p id="userEmail">Loading...</p>
+            </div>
+            <button class="logout-btn" onclick="logout()">
+                <i class="fa fa-sign-out"></i> Logout
+            </button>
+        </div>
+    </div>
+    
+    <div class="dashboard-content">
+        <div class="container">
+            <div id="alertContainer"></div>
+            
+            <div class="row">
+                <div class="col-md-8">
+                    <h2 style="margin-bottom: 25px; color: #1a1a2e;">Your Accounts</h2>
+                    <div id="accountsContainer">
+                        <div class="loading">
+                            <i class="fa fa-spinner fa-spin fa-2x"></i>
+                            <p>Loading accounts...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="send-money-card">
+                        <h3><i class="fa fa-paper-plane"></i> Send Money</h3>
+                        <form id="sendMoneyForm">
+                            <div class="form-group">
+                                <label>From Account</label>
+                                <select class="form-control" id="fromAccount" required>
+                                    <option value="">Select Account</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>To Account Number</label>
+                                <input type="text" class="form-control" id="toAccountNumber" placeholder="Enter recipient account number" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Amount ($)</label>
+                                <input type="number" class="form-control" id="amount" placeholder="0.00" step="0.01" min="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Description (Optional)</label>
+                                <input type="text" class="form-control" id="description" placeholder="Payment description">
+                            </div>
+                            <button type="submit" class="btn-send" id="sendBtn">
+                                <i class="fa fa-paper-plane"></i> Send Money
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="transactions-card">
+                        <h3><i class="fa fa-history"></i> Recent Transactions</h3>
+                        <div id="transactionsContainer">
+                            <div class="loading">
+                                <i class="fa fa-spinner fa-spin"></i>
+                                <p>Loading transactions...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+            ? 'http://localhost:3000' 
+            : '';
+        
+        let token = localStorage.getItem('token');
+        let user = JSON.parse(localStorage.getItem('user') || '{}');
+        
+        // Check authentication
+        if (!token || !user.id) {
+            window.location.href = 'customer_login.html';
+        }
+        
+        // Display user info
+        document.getElementById('userName').textContent = user.name || 'User';
+        document.getElementById('userEmail').textContent = user.email || '';
+        
+        // Load accounts
+        async function loadAccounts() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/accounts`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                if (response.status === 401) {
+                    logout();
+                    return;
+                }
+                
+                const accounts = await response.json();
+                displayAccounts(accounts);
+                populateAccountDropdown(accounts);
+            } catch (error) {
+                console.error('Error loading accounts:', error);
+                document.getElementById('accountsContainer').innerHTML = 
+                    '<div class="alert alert-error">Error loading accounts. Please refresh the page.</div>';
+            }
+        }
+        
+        function displayAccounts(accounts) {
+            const container = document.getElementById('accountsContainer');
+            
+            if (accounts.length === 0) {
+                container.innerHTML = '<div class="alert">No accounts found.</div>';
+                return;
+            }
+            
+            container.innerHTML = accounts.map(account => `
+                <div class="account-card">
+                    <div class="account-header">
+                        <div>
+                            <div class="account-type">${account.type.toUpperCase()}</div>
+                            <div class="account-number">${account.accountNumber}</div>
+                        </div>
+                        <span class="account-status status-${account.status}">${account.status.toUpperCase()}</span>
+                    </div>
+                    <div class="account-balance">$${parseFloat(account.balance).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
+                    <p style="color: #666; margin: 0;">${account.accountName || 'Account'}</p>
+                </div>
+            `).join('');
+        }
+        
+        function populateAccountDropdown(accounts) {
+            const select = document.getElementById('fromAccount');
+            select.innerHTML = '<option value="">Select Account</option>' + 
+                accounts.filter(acc => acc.status === 'active').map(account => 
+                    `<option value="${account.id}" data-balance="${account.balance}">
+                        ${account.accountNumber} - $${parseFloat(account.balance).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}
+                    </option>`
+                ).join('');
+        }
+        
+        // Load transactions
+        async function loadTransactions() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/transactions`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                if (response.status === 401) {
+                    logout();
+                    return;
+                }
+                
+                const transactions = await response.json();
+                displayTransactions(transactions);
+            } catch (error) {
+                console.error('Error loading transactions:', error);
+                document.getElementById('transactionsContainer').innerHTML = 
+                    '<p style="color: #666;">Error loading transactions.</p>';
+            }
+        }
+        
+        function displayTransactions(transactions) {
+            const container = document.getElementById('transactionsContainer');
+            
+            if (transactions.length === 0) {
+                container.innerHTML = '<p style="color: #666; text-align: center; padding: 20px;">No transactions yet.</p>';
+                return;
+            }
+            
+            container.innerHTML = transactions.slice(0, 10).map(transaction => {
+                const date = new Date(transaction.date);
+                const isSent = transaction.fromAccountId;
+                return `
+                    <div class="transaction-item">
+                        <div class="transaction-details">
+                            <h4>${transaction.description}</h4>
+                            <p>${date.toLocaleDateString()} ${date.toLocaleTimeString()}</p>
+                            <p style="font-size: 12px; color: #999;">To: ${transaction.toAccountNumber}</p>
+                        </div>
+                        <div class="transaction-amount ${isSent ? 'amount-sent' : 'amount-received'}">
+                            ${isSent ? '-' : '+'}$${parseFloat(transaction.amount).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        // Send money
+        document.getElementById('sendMoneyForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const fromAccountId = document.getElementById('fromAccount').value;
+            const toAccountNumber = document.getElementById('toAccountNumber').value;
+            const amount = parseFloat(document.getElementById('amount').value);
+            const description = document.getElementById('description').value;
+            const sendBtn = document.getElementById('sendBtn');
+            
+            if (!fromAccountId) {
+                showAlert('Please select an account', 'error');
+                return;
+            }
+            
+            sendBtn.disabled = true;
+            sendBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Sending...';
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/transactions/send`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        fromAccountId: parseInt(fromAccountId),
+                        toAccountNumber,
+                        amount,
+                        description
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showAlert('Money sent successfully!', 'success');
+                    document.getElementById('sendMoneyForm').reset();
+                    loadAccounts();
+                    loadTransactions();
+                } else {
+                    showAlert(data.error || 'Failed to send money', 'error');
+                }
+            } catch (error) {
+                console.error('Error sending money:', error);
+                showAlert('Connection error. Please try again.', 'error');
+            } finally {
+                sendBtn.disabled = false;
+                sendBtn.innerHTML = '<i class="fa fa-paper-plane"></i> Send Money';
+            }
+        });
+        
+        function showAlert(message, type) {
+            const container = document.getElementById('alertContainer');
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type === 'error' ? 'error' : 'success'}`;
+            alert.textContent = message;
+            container.innerHTML = '';
+            container.appendChild(alert);
+            
+            setTimeout(() => {
+                alert.remove();
+            }, 5000);
+        }
+        
+        function logout() {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            window.location.href = 'customer_login.html';
+        }
+        
+        // Initial load
+        loadAccounts();
+        loadTransactions();
+    </script>
+</body>
+</html>

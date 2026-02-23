@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<head>
+    <title>Admin Dashboard - Dre Eyes Only Finance</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f7fa;
+            color: #1a1a2e;
+        }
+        
+        .dashboard-header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .dashboard-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .user-info h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .user-info p {
+            margin: 5px 0 0;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        
+        .admin-badge {
+            display: inline-block;
+            background: #4a90e2;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .logout-btn {
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            color: #fff;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s ease;
+        }
+        
+        .logout-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .dashboard-content {
+            padding: 40px 0;
+        }
+        
+        .stats-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        
+        .stats-card h3 {
+            font-size: 14px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        .stats-card .number {
+            font-size: 32px;
+            font-weight: 800;
+            color: #4a90e2;
+        }
+        
+        .table-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+        }
+        
+        .table-card h3 {
+            color: #1a1a2e;
+            margin-bottom: 25px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        table th {
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #1a1a2e;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        table td {
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .btn-action {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 0 3px;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-hold {
+            background: #ffc107;
+            color: #000;
+        }
+        
+        .btn-hold:hover {
+            background: #e0a800;
+        }
+        
+        .btn-release {
+            background: #28a745;
+            color: #fff;
+        }
+        
+        .btn-release:hover {
+            background: #218838;
+        }
+        
+        .btn-delete {
+            background: #dc3545;
+            color: #fff;
+        }
+        
+        .btn-delete:hover {
+            background: #c82333;
+        }
+        
+        .status-badge {
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .status-active {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-hold {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-deleted {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .alert {
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background: #fff;
+            margin: 15% auto;
+            padding: 30px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+        }
+        
+        .modal-header {
+            margin-bottom: 20px;
+        }
+        
+        .modal-header h3 {
+            margin: 0;
+            color: #1a1a2e;
+        }
+        
+        .close {
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #999;
+        }
+        
+        .close:hover {
+            color: #000;
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard-header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            table {
+                font-size: 12px;
+            }
+            
+            table th, table td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-header">
+        <div class="container">
+            <div class="user-info">
+                <h2>Admin Dashboard <span class="admin-badge">ADMIN</span></h2>
+                <p id="userEmail">Loading...</p>
+            </div>
+            <button class="logout-btn" onclick="logout()">
+                <i class="fa fa-sign-out"></i> Logout
+            </button>
+        </div>
+    </div>
+    
+    <div class="dashboard-content">
+        <div class="container">
+            <div id="alertContainer"></div>
+            
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="stats-card">
+                        <h3>Total Accounts</h3>
+                        <div class="number" id="totalAccounts">0</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stats-card">
+                        <h3>Active Accounts</h3>
+                        <div class="number" id="activeAccounts">0</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stats-card">
+                        <h3>On Hold</h3>
+                        <div class="number" id="holdAccounts">0</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stats-card">
+                        <h3>Total Users</h3>
+                        <div class="number" id="totalUsers">0</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-card">
+                        <h3><i class="fa fa-users"></i> All Accounts</h3>
+                        <div id="accountsContainer">
+                            <div class="loading">
+                                <i class="fa fa-spinner fa-spin fa-2x"></i>
+                                <p>Loading accounts...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-card">
+                        <h3><i class="fa fa-exchange"></i> All Transactions</h3>
+                        <div id="transactionsContainer">
+                            <div class="loading">
+                                <i class="fa fa-spinner fa-spin fa-2x"></i>
+                                <p>Loading transactions...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h3 id="modalTitle">Confirm Action</h3>
+            </div>
+            <div id="modalBody">
+                <p id="modalMessage"></p>
+            </div>
+            <div style="margin-top: 20px; text-align: right;">
+                <button class="btn-action" onclick="closeModal()" style="background: #6c757d; color: #fff; margin-right: 10px;">Cancel</button>
+                <button class="btn-action" id="confirmBtn" onclick="confirmAction()" style="background: #dc3545; color: #fff;">Confirm</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+            ? 'http://localhost:3000' 
+            : '';
+        
+        let token = localStorage.getItem('token');
+        let user = JSON.parse(localStorage.getItem('user') || '{}');
+        let pendingAction = null;
+        
+        // Check authentication and admin role
+        if (!token || !user.id || user.role !== 'admin') {
+            window.location.href = 'customer_login.html';
+        }
+        
+        document.getElementById('userEmail').textContent = user.email || '';
+        
+        // Load all data
+        async function loadAllData() {
+            await Promise.all([
+                loadAccounts(),
+                loadUsers(),
+                loadTransactions()
+            ]);
+        }
+        
+        // Load accounts
+        async function loadAccounts() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/admin/accounts`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                if (response.status === 401 || response.status === 403) {
+                    logout();
+                    return;
+                }
+                
+                const accounts = await response.json();
+                displayAccounts(accounts);
+                updateStats(accounts);
+            } catch (error) {
+                console.error('Error loading accounts:', error);
+                document.getElementById('accountsContainer').innerHTML = 
+                    '<div class="alert alert-error">Error loading accounts. Please refresh the page.</div>';
+            }
+        }
+        
+        function displayAccounts(accounts) {
+            const container = document.getElementById('accountsContainer');
+            
+            if (accounts.length === 0) {
+                container.innerHTML = '<p style="color: #666; text-align: center; padding: 20px;">No accounts found.</p>';
+                return;
+            }
+            
+            container.innerHTML = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Account Number</th>
+                            <th>User ID</th>
+                            <th>Type</th>
+                            <th>Balance</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${accounts.map(account => `
+                            <tr>
+                                <td><strong>${account.accountNumber}</strong></td>
+                                <td>${account.userId}</td>
+                                <td>${account.type}</td>
+                                <td>$${parseFloat(account.balance).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                                <td><span class="status-badge status-${account.status}">${account.status}</span></td>
+                                <td>
+                                    ${account.status === 'active' ? 
+                                        `<button class="btn-action btn-hold" onclick="holdAccount(${account.id}, '${account.accountNumber}')">
+                                            <i class="fa fa-lock"></i> Hold
+                                        </button>` : 
+                                        account.status === 'hold' ?
+                                        `<button class="btn-action btn-release" onclick="releaseAccount(${account.id}, '${account.accountNumber}')">
+                                            <i class="fa fa-unlock"></i> Release
+                                        </button>` : ''
+                                    }
+                                    ${account.status !== 'deleted' ?
+                                        `<button class="btn-action btn-delete" onclick="deleteAccount(${account.id}, '${account.accountNumber}')">
+                                            <i class="fa fa-trash"></i> Delete
+                                        </button>` : ''
+                                    }
+                                </td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+        
+        function updateStats(accounts) {
+            document.getElementById('totalAccounts').textContent = accounts.length;
+            document.getElementById('activeAccounts').textContent = accounts.filter(a => a.status === 'active').length;
+            document.getElementById('holdAccounts').textContent = accounts.filter(a => a.status === 'hold').length;
+        }
+        
+        // Load users
+        async function loadUsers() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/admin/users`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                if (response.status === 401 || response.status === 403) {
+                    logout();
+                    return;
+                }
+                
+                const users = await response.json();
+                document.getElementById('totalUsers').textContent = users.length;
+            } catch (error) {
+                console.error('Error loading users:', error);
+            }
+        }
+        
+        // Load transactions
+        async function loadTransactions() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/admin/transactions`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                if (response.status === 401 || response.status === 403) {
+                    logout();
+                    return;
+                }
+                
+                const transactions = await response.json();
+                displayTransactions(transactions);
+            } catch (error) {
+                console.error('Error loading transactions:', error);
+                document.getElementById('transactionsContainer').innerHTML = 
+                    '<p style="color: #666; text-align: center; padding: 20px;">Error loading transactions.</p>';
+            }
+        }
+        
+        function displayTransactions(transactions) {
+            const container = document.getElementById('transactionsContainer');
+            
+            if (transactions.length === 0) {
+                container.innerHTML = '<p style="color: #666; text-align: center; padding: 20px;">No transactions yet.</p>';
+                return;
+            }
+            
+            container.innerHTML = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>From Account</th>
+                            <th>To Account</th>
+                            <th>Amount</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${transactions.map(transaction => {
+                            const date = new Date(transaction.date);
+                            return `
+                                <tr>
+                                    <td>${date.toLocaleDateString()} ${date.toLocaleTimeString()}</td>
+                                    <td>${transaction.fromAccountNumber}</td>
+                                    <td>${transaction.toAccountNumber}</td>
+                                    <td><strong>$${parseFloat(transaction.amount).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</strong></td>
+                                    <td>${transaction.description}</td>
+                                    <td><span class="status-badge status-active">${transaction.status}</span></td>
+                                </tr>
+                            `;
+                        }).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+        
+        // Account actions
+        function holdAccount(accountId, accountNumber) {
+            showConfirmModal(
+                'Put Account on Hold',
+                `Are you sure you want to put account ${accountNumber} on hold?`,
+                async () => {
+                    try {
+                        const response = await fetch(`${API_BASE_URL}/api/admin/accounts/${accountId}/hold`, {
+                            method: 'POST',
+                            headers: { 'Authorization': `Bearer ${token}` }
+                        });
+                        
+                        const data = await response.json();
+                        
+                        if (response.ok) {
+                            showAlert('Account put on hold successfully', 'success');
+                            loadAccounts();
+                        } else {
+                            showAlert(data.error || 'Failed to put account on hold', 'error');
+                        }
+                    } catch (error) {
+                        showAlert('Connection error. Please try again.', 'error');
+                    }
+                }
+            );
+        }
+        
+        function releaseAccount(accountId, accountNumber) {
+            showConfirmModal(
+                'Release Account',
+                `Are you sure you want to release account ${accountNumber} from hold?`,
+                async () => {
+                    try {
+                        const response = await fetch(`${API_BASE_URL}/api/admin/accounts/${accountId}/release`, {
+                            method: 'POST',
+                            headers: { 'Authorization': `Bearer ${token}` }
+                        });
+                        
+                        const data = await response.json();
+                        
+                        if (response.ok) {
+                            showAlert('Account released successfully', 'success');
+                            loadAccounts();
+                        } else {
+                            showAlert(data.error || 'Failed to release account', 'error');
+                        }
+                    } catch (error) {
+                        showAlert('Connection error. Please try again.', 'error');
+                    }
+                }
+            );
+        }
+        
+        function deleteAccount(accountId, accountNumber) {
+            showConfirmModal(
+                'Delete Account',
+                `Are you sure you want to delete account ${accountNumber}? This action cannot be undone.`,
+                async () => {
+                    try {
+                        const response = await fetch(`${API_BASE_URL}/api/admin/accounts/${accountId}`, {
+                            method: 'DELETE',
+                            headers: { 'Authorization': `Bearer ${token}` }
+                        });
+                        
+                        const data = await response.json();
+                        
+                        if (response.ok) {
+                            showAlert('Account deleted successfully', 'success');
+                            loadAccounts();
+                        } else {
+                            showAlert(data.error || 'Failed to delete account', 'error');
+                        }
+                    } catch (error) {
+                        showAlert('Connection error. Please try again.', 'error');
+                    }
+                }
+            );
+        }
+        
+        // Modal functions
+        function showConfirmModal(title, message, onConfirm) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalMessage').textContent = message;
+            document.getElementById('confirmModal').style.display = 'block';
+            pendingAction = onConfirm;
+        }
+        
+        function closeModal() {
+            document.getElementById('confirmModal').style.display = 'none';
+            pendingAction = null;
+        }
+        
+        function confirmAction() {
+            if (pendingAction) {
+                pendingAction();
+                closeModal();
+            }
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('confirmModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+        
+        function showAlert(message, type) {
+            const container = document.getElementById('alertContainer');
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type === 'error' ? 'error' : 'success'}`;
+            alert.textContent = message;
+            container.innerHTML = '';
+            container.appendChild(alert);
+            
+            setTimeout(() => {
+                alert.remove();
+            }, 5000);
+        }
+        
+        function logout() {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            window.location.href = 'customer_login.html';
+        }
+        
+        // Initial load
+        loadAllData();
+    </script>
+</body>
+</html>
